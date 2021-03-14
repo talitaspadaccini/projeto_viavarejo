@@ -1,0 +1,40 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(224, 224, 224, 1);
+    position: absolute;
+    height: 60px;
+    width: 411px;
+    left: 0px;
+    top: 24px;
+    border-radius: 0px;
+}
+
+.lato-font {
+    font-family: 'latoregular';
+    src: url('lato-regular-webfont.woff2') format('woff2'), url('lato-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.menu-principal {
+    display: flexbox;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 20px;
+    top: 20px;
+    color: white;
+}
+
+.modo-menu {
+    display: flex;
+    position: absolute;
+    width: 351px;
+    height: 1000px;
+    right: 0px;
+    top: 24px;
+    background-color: rgba(51, 51, 51, 1);
+}
