@@ -12,26 +12,92 @@
 
 <body>
     <header>
-        <!-- Logo do cabeçalho -->
-        <img src="./assets/img/Ellipse 13.png" /> Controle Financeiro
-        <img src="./assets/img/Shape.svg" />
-        <div>
-            <!-- Elemento fechar menu (mobile) -->
-            <div>
-                X
+        <!-- div cabeçalho -->
+        <div class=".header">
+            <!-- logo do cabeçalho -->
+            <img src="./assets/img/Ellipse 13.png" />
+            <!-- texto do cabeçalho -->
+            Controle Financeiro
+            <!-- imagem menu -->
+            <img src="./assets/img/Shape.svg" />
+            <div class=".menu">
+                <!-- elementos navegáveis do menu-->
+                <!--<nav class="modo-menu">-->
+                <nav>
+                    <div class=".fechar">
+                        X
+                    </div>
+                    <div></div>Cadastro de transações
             </div>
-            <!-- ELementos navegáveis do menu -->
-            <!--<nav class="modo-menu">-->
-            <nav>
-                <div></div>Cadastro de transações</div>
-        <div>Limpar dados</div>
-        <div>Salvar no servidor</div>
-        </nav>
-        </div>
-        <div>
-
+            <div>Limpar dados</div>
+            <div>Salvar no servidor</div>
+            </nav>
         </div>
     </header>
+    </div>
+    <!-- formulario de nova transação -->
+    <div class=".form">
+        <form action="/dados_form.xml">
+            <!-- menu drop down tipo de transação -->
+            <div class=".tipotransacao">
+                <label for="tipodetransacao">Tipo de transação</label>
+                <select id="tipodetransacao" name="Tipo de Transação">
+                    <option value="compra">Compra</option>
+                    <option value="venda">Venda de mercadoria</option>
+                </select>
+            </div>
+            <!-- input com nome da mercadoria -->
+            <div class=".nomemercadoria">
+                <label for="nomemercadoria">Nome da mercadoria</label>
+                <input type="text" id="nomemercadoria" placeholder="Input">
+            </div>
+            <!-- input com valor da mercadoria -->
+            <div class=".valor">
+                <label for="valor">Valor</label>
+                <input type="valor" id="valor" placeholder="R$ 0,00">
+            </div>
+            <div class=".botao_form">
+                <input type="submit" value="Adicionar transação">
+            </div>
+        </form>
+    </div>
+
+    <!-- tabela extrato das transações -->
+    <div class=".extrato_transações">
+        <table class=".tabela">
+            <div class=".extrato">
+                <h2 id="titulo_tabela">Extrato de transações</h2>
+                <tr id="titulos_colunas">
+                    <th>Mercadoria</th>
+                    <th>Valor</th>
+                </tr>
+                <tr id="itens_transacoes">
+                    <td>+</td>
+                    <td>Lorem ipsum dolor sit amet consectetur</td>
+                    <td>R$ 12.999,99</td>
+                </tr>
+                <tr id="itens_transacoes">
+                    <td>-</td>
+                    <td>Quis nostrud exercitation</td>
+                    <td>R$ 99,99</td>
+                </tr>
+                <tr id="itens_transacoes">
+                    <td>+</td>
+                    <td>Lorem ipsum</td>
+                    <td>R$ 9,99</td>
+                </tr>
+            </div>
+            <div class=".total">
+                <tr id="total">
+                    <td>Total</td>
+                    <td>R$ 12.909,99
+                </tr>
+                <tr id="status">
+                    <td>(LUCRO)</td>
+                </tr>
+            </div>
+        </table>
+    </div>
 </body>
 
 </html>
