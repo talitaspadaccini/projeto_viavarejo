@@ -1,34 +1,37 @@
-.header {
+header {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: rgba(224, 224, 224, 1);
-    position: absolute;
-    height: 60px;
-    width: 411px;
-    left: 0px;
-    top: 24px;
-    border-radius: 0px;
+    position: relative;
+    height: 80px;
 }
 
-.lato-font {
-    font-family: 'latoregular';
-    src: url('lato-regular-webfont.woff2') format('woff2'), url('lato-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+.hamburguer-menu {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background-color: white;
+    width: 350px;
+    height: 40px;
 }
 
-.menu-principal {
-    display: flexbox;
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    left: 20px;
-    top: 20px;
-    color: white;
-}
+/* responsividade menu */
+@media (max-width: 768x) {
+    .hamburguer-menu{
+      flex-direction: column;
+      display: flex;
+      position: absolute;
+      width: 351px;
+      right: 0px;
+      top: 24px;
+      background-color: rgba(51, 51, 51, 1);
 
+    }
+  }
+
+/*
 .modo-menu {
     display: flex;
     position: absolute;

@@ -1,103 +1,92 @@
 <!DOCTYPE html>
-<html>
 
+<html>
 <head>
     <title>
         Controle Financeiro - Via Varejo
     </title>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <!-- rel é como o arquivo será interpretado / style é como será apresentado -->
-    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <header>
-        <!-- div cabeçalho -->
-        <div class=".header">
-            <!-- logo do cabeçalho -->
-            <img src="./assets/img/Ellipse 13.png" />
-            <!-- texto do cabeçalho -->
-            Controle Financeiro
-            <!-- imagem menu -->
-            <img src="./assets/img/Shape.svg" />
-            <div class=".menu">
-                <!-- elementos navegáveis do menu-->
-                <!--<nav class="modo-menu">-->
-                <nav>
-                    <div class=".fechar">
-                        X
-                    </div>
-                    <div></div>Cadastro de transações
-            </div>
-            <div>Limpar dados</div>
-            <div>Salvar no servidor</div>
-            </nav>
-        </div>
+      <div class="itens-cabecalho">
+        <!-- logo do cabeçalho -->
+        <img id="logo" src="./assets/img/Ellipse 13.png" />
+        <!-- texto do cabeçalho -->
+        <span id="titulo_cabecalho">Controle Financeiro</span>
+      </div>
+        <!-- imagem menu -->
+        <img id="img_menu" src="./assets/img/Shape.svg" />
+        <!-- elementos navegáveis do menu-->
+        <!--<nav class="modo-menu">-->
+        <nav class="hamburguer-menu">
+            <div style="display: none">X</div>
+            <a id="menu_item1" href="/pagina1/1.html">Cadastro de transações</a>
+            <a id="menu_item2" href="/pagina2/2.html">Limpar dados</a>
+            <a id="menu_item3" href="/pagina3/3.html" ">Salvar no servidor</a>
+          </nav>
     </header>
-    </div>
     <!-- formulario de nova transação -->
-    <div class=".form">
-        <form action="/dados_form.xml">
-            <!-- menu drop down tipo de transação -->
-            <div class=".tipotransacao">
-                <label for="tipodetransacao">Tipo de transação</label>
-                <select id="tipodetransacao" name="Tipo de Transação">
-                    <option value="compra">Compra</option>
-                    <option value="venda">Venda de mercadoria</option>
-                </select>
-            </div>
-            <!-- input com nome da mercadoria -->
-            <div class=".nomemercadoria">
-                <label for="nomemercadoria">Nome da mercadoria</label>
-                <input type="text" id="nomemercadoria" placeholder="Input">
-            </div>
-            <!-- input com valor da mercadoria -->
-            <div class=".valor">
-                <label for="valor">Valor</label>
-                <input type="valor" id="valor" placeholder="R$ 0,00">
-            </div>
-            <div class=".botao_form">
-                <input type="submit" value="Adicionar transação">
-            </div>
-        </form>
+    
+    <div class="form ">
+      <form>
+        <!-- menu drop down tipo de transação -->
+        <div class="tipotransacao ">Tipo de transação
+          <select id="tipodetransacao " name="Tipo de Transação ">
+            <option value="compra ">Compra</option>
+            <option value="venda ">Venda de mercadoria</option>
+          </select>
+        </div>
+        <!-- input com nome da mercadoria -->
+        <div class="nomemercadoria ">Nome da mercadoria
+          <input type="text " id="nomemercadoria " placeholder="Input " />
+        </div>
+        <!-- input com valor da mercadoria -->
+        <div class="valor ">Valor
+          <input type="valor " id="valor " placeholder="R$ 0,00 " />
+        </div>
+        <div class="botao_form ">
+          <input type="submit " value="Adicionar transação " />
+        </div>
+      </form>
     </div>
 
     <!-- tabela extrato das transações -->
-    <div class=".extrato_transações">
-        <table class=".tabela">
-            <div class=".extrato">
-                <h2 id="titulo_tabela">Extrato de transações</h2>
-                <tr id="titulos_colunas">
-                    <th>Mercadoria</th>
-                    <th>Valor</th>
-                </tr>
-                <tr id="itens_transacoes">
-                    <td>+</td>
-                    <td>Lorem ipsum dolor sit amet consectetur</td>
-                    <td>R$ 12.999,99</td>
-                </tr>
-                <tr id="itens_transacoes">
-                    <td>-</td>
-                    <td>Quis nostrud exercitation</td>
-                    <td>R$ 99,99</td>
-                </tr>
-                <tr id="itens_transacoes">
-                    <td>+</td>
-                    <td>Lorem ipsum</td>
-                    <td>R$ 9,99</td>
-                </tr>
-            </div>
-            <div class=".total">
-                <tr id="total">
-                    <td>Total</td>
-                    <td>R$ 12.909,99
-                </tr>
-                <tr id="status">
-                    <td>(LUCRO)</td>
-                </tr>
-            </div>
-        </table>
-    </div>
-</body>
-
+    <table class="tabela ">
+        <div class="extrato ">
+          <h1 id="titulo_tabela ">Extrato de transações</h1>
+          <tr>
+            <th>Mercadoria</th>
+            <th>Valor</th>
+          </tr>
+          <tr>
+            <td>+</td>
+            <td>Lorem ipsum dolor sit amet consectetur</td>
+            <td>R$ 12.999,99</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>Quis nostrud exercitation</td>
+            <td>R$ 99,99</td>
+          </tr>
+          <tr>
+            <td>+</td>
+            <td>Lorem ipsum</td>
+            <td>R$ 9,99</td>
+          </tr>
+        </div>
+        <div class="total ">
+          <tr id="total ">
+            <td>Total</td>
+            <td>R$ 12.909,99</td>
+          </tr>
+          <tr id="status ">
+            <td>(LUCRO)</td>
+          </tr>
+        </div>
+      </table>
+  </body>
 </html>
