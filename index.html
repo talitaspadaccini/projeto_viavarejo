@@ -8,6 +8,7 @@
     <meta charset="UTF-8" />
     <!-- rel é como o arquivo será interpretado / style é como será apresentado -->
     <link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -22,37 +23,35 @@
         <img id="img_menu" src="./assets/img/Shape.svg" />
         <!-- elementos navegáveis do menu-->
         <!--<nav class="modo-menu">-->
-        <nav class="hamburguer-menu">
-            <div style="display: none">X</div>
-            <a id="menu_item1" href="/pagina1/1.html">Cadastro de transações</a>
-            <a id="menu_item2" href="/pagina2/2.html">Limpar dados</a>
-            <a id="menu_item3" href="/pagina3/3.html" ">Salvar no servidor</a>
-          </nav>
+        <ul class="hamburguer-menu">
+            <div id="fechar">X</div>
+            <li><a id="menu_item1" href="/pagina1/1.html">Cadastro de transações</a></li>
+            <li><a id="menu_item2" href="/pagina2/2.html">Limpar dados</a></li>
+            <li><a id="menu_item3" href="/pagina3/3.html" ">Salvar no servidor</a></li>
+          </ul>
     </header>
     <!-- formulario de nova transação -->
     
-    <div class="form ">
-      <form>
+    <form>
+      <div id="titulo-form">Nova transação</div>
         <!-- menu drop down tipo de transação -->
-        <div class="tipotransacao ">Tipo de transação
-          <select id="tipodetransacao " name="Tipo de Transação ">
+        <div id="tipotransacao" for="tipotransacao">Tipo de transação</div>
+          <select id="tipodetransacao" name="Tipo de Transação ">
             <option value="compra ">Compra</option>
             <option value="venda ">Venda de mercadoria</option>
           </select>
-        </div>
         <!-- input com nome da mercadoria -->
-        <div class="nomemercadoria ">Nome da mercadoria
+        <div id="nomemercadoria ">Nome da mercadoria
           <input type="text " id="nomemercadoria " placeholder="Input " />
         </div>
         <!-- input com valor da mercadoria -->
-        <div class="valor ">Valor
+        <div id="valor ">Valor
           <input type="valor " id="valor " placeholder="R$ 0,00 " />
         </div>
         <div class="botao_form ">
           <input type="submit " value="Adicionar transação " />
         </div>
-      </form>
-    </div>
+    </form>
 
     <!-- tabela extrato das transações -->
     <table class="tabela ">
