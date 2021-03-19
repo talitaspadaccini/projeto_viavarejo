@@ -10,6 +10,7 @@ header {
 body {
     font-family: Lato;
     align-content: space-around;
+    justify-items: center;
 }
 
 form {
@@ -23,14 +24,13 @@ form {
     height: 344px;
     left: calc(50% - 400px/2);
     top: calc(50% - 344px/2);
-    margin: 30px;
+    margin: 30px 120px;
 }
 
 #titulo-form {
     
     font-weight: bold;
     text-align: center;
-    margin: ;
 }
 
 #tipotransacao {
@@ -44,7 +44,7 @@ form {
     box-sizing: border-box;
     width: 680px;
     height: 281px;
-    margin: 30px;
+    margin: 30px 200px;
     text-align: center;
     font-weight: bold;
 }
