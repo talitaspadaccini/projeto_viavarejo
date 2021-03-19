@@ -9,6 +9,7 @@ header {
 
 body {
     font-family: Lato;
+    align-content: space-around;
 }
 
 form {
@@ -16,15 +17,17 @@ form {
     border: 1px solid #979797;
     border-radius: 4px;
     box-sizing: border-box;
+    float: left;
     padding: 20px 15px;
     width: 400px;
     height: 344px;
     left: calc(50% - 400px/2);
     top: calc(50% - 344px/2);
-    position: absolute;
+    margin: 30px;
 }
 
 #titulo-form {
+    
     font-weight: bold;
     text-align: center;
     margin: ;
@@ -32,6 +35,75 @@ form {
 
 #tipotransacao {
     
+}
+
+.tabela {
+    border: 1px solid #979797;
+    display: grid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 680px;
+    height: 281px;
+    margin: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+
+
+#primeiro {
+    text-align: center;
+    font-weight: normal;
+    font-size: 14px;
+    border-top: 1px solid #979797;
+}
+
+#segundo {
+    text-align: left;
+    font-weight: normal;
+    font-size: 14px;
+    border-top: 1px solid #979797;
+}
+
+#terceiro {
+    text-align:right;
+    font-weight: normal;
+    font-size: 14px;
+    border-top: 1px solid #979797;
+}
+
+#th_segundo {
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#th_terceiro {
+    text-align: right;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#total {
+    text-align: right;
+    font-weight: bold;
+    font-size: 14px;
+    border-top-style: double;
+}
+
+#saldo-terceiro {
+    text-align: right;
+    font-size: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 2px 0px;
+    margin: 10px 0;
 }
 
 ul.hamburguer-menu {

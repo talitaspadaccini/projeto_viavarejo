@@ -41,11 +41,11 @@
             <option value="venda ">Venda de mercadoria</option>
           </select>
         <!-- input com nome da mercadoria -->
-        <div id="nomemercadoria ">Nome da mercadoria
+        <div id="nomemercadoria " for="nomemercadoria">Nome da mercadoria</div>
           <input type="text " id="nomemercadoria " placeholder="Input " />
         </div>
         <!-- input com valor da mercadoria -->
-        <div id="valor ">Valor
+        <div id="valor" for="valor">Valor</div>
           <input type="valor " id="valor " placeholder="R$ 0,00 " />
         </div>
         <div class="botao_form ">
@@ -54,38 +54,39 @@
     </form>
 
     <!-- tabela extrato das transações -->
-    <table class="tabela ">
-        <div class="extrato ">
-          <h1 id="titulo_tabela ">Extrato de transações</h1>
+    <div class="tabela">Extrato de transações 
+      <table>
           <tr>
-            <th>Mercadoria</th>
-            <th>Valor</th>
-          </tr>
-          <tr>
-            <td>+</td>
-            <td>Lorem ipsum dolor sit amet consectetur</td>
-            <td>R$ 12.999,99</td>
+            <th></th>
+            <th id="th_segundo">Mercadoria</th>
+            <th id="th_terceiro">Valor</th>
           </tr>
           <tr>
-            <td>-</td>
-            <td>Quis nostrud exercitation</td>
-            <td>R$ 99,99</td>
+            <td id="primeiro">+</td>
+            <td id="segundo">Lorem ipsum dolor sit amet consectetur</td>
+            <td id="terceiro">R$ 12.999,99</td>
           </tr>
           <tr>
-            <td>+</td>
-            <td>Lorem ipsum</td>
-            <td>R$ 9,99</td>
+            <td id="primeiro">-</td>
+            <td id="segundo">Quis nostrud exercitation</td>
+            <td id="terceiro">R$ 99,99</td>
           </tr>
-        </div>
-        <div class="total ">
-          <tr id="total ">
-            <td>Total</td>
-            <td>R$ 12.909,99</td>
+          <tr>
+            <td id="primeiro">+</td>
+            <td id="segundo">Lorem ipsum</td>
+            <td id="terceiro">R$ 9,99</td>
           </tr>
-          <tr id="status ">
-            <td>(LUCRO)</td>
+          <tr id="total">
+            <th></th>
+            <th>Total</th>
+            <th>R$ 12.909,99</th>
           </tr>
-        </div>
-      </table>
+          <tr>
+            <td></td>
+            <td></td>
+            <td id="saldo-terceiro">(LUCRO)</td>
+          </tr>
+    </table>
+  </div>
   </body>
 </html>
