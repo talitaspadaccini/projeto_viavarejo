@@ -13,11 +13,12 @@
 
 <body>
     <header>
-      <div id="itens-cabecalho">
+<nav>
+      <div class="itens-cabecalho">
         <!-- logo do cabeçalho -->
         <img id="logo" src="./assets/img/Ellipse 13.png" />
         <!-- texto do cabeçalho -->
-        <span id="titulo_cabecalho">Controle Financeiro</span>
+        <h1 id="titulo_cabecalho">Controle Financeiro</h1>
       </div>
         <!-- imagem menu -->
         <img id="img-menu" src="./assets/img/Shape.svg"/>
@@ -29,25 +30,24 @@
             <li><a id="menu_item2" href="/pagina2/2.html">Limpar dados</a></li>
             <li><a id="menu_item3" href="/pagina3/3.html" ">Salvar no servidor</a></li>
           </ul>
+        </nav>
     </header>
     <!-- formulario de nova transação -->
-    
+    <div class="corpo">
     <form>
       <div id="titulo-form">Nova transação</div>
         <!-- menu drop down tipo de transação -->
-        <div id="tipotransacao" for="tipotransacao">Tipo de transação</div>
+        <div class="tipotransacao" for="tipotransacao">Tipo de transação</div>
           <select id="tipodetransacao" name="Tipo de Transação ">
             <option value="compra ">Compra</option>
             <option value="venda ">Venda de mercadoria</option>
           </select>
         <!-- input com nome da mercadoria -->
-        <div id="nomemercadoria " for="nomemercadoria">Nome da mercadoria</div>
-          <input type="text " id="nomemercadoria " placeholder="Input " />
-        </div>
+        <div class="nomemercadoria " for="nomemercadoria">Nome da mercadoria</div>
+          <input type="text " id="nomemedarcadoria " placeholder="Input " />
         <!-- input com valor da mercadoria -->
-        <div id="valor" for="valor">Valor</div>
+        <div class="valor" for="valor">Valor</div>
           <input type="valor " id="valor " placeholder="R$ 0,00 " />
-        </div>
           <input id="botao-form" type="submit " value="Adicionar transação " />
     </form>
 
@@ -86,5 +86,6 @@
           </tr>
     </table>
   </div>
+</div>
   </body>
 </html>
