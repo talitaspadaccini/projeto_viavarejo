@@ -13,8 +13,8 @@
     cursor: pointer;
 }
 
-#check:checked ~ .hamburguer-menu {
-  transform: translate(300px);
+#check:checked ~ ul.hamburguer-menu {
+  transform: translate(400px);
 }
 
   body {
@@ -63,13 +63,12 @@
 }
 /* No mobile, há um menu lateral preto que aparece ao clicar no ícone */
   ul.hamburguer-menu {
-      display: flex;
       flex-direction: column;
       position: absolute;
       background-color: rgba(51, 51, 51, 1);
       width: 351px;
-      height: 1000px;
-      left: 300px;
+      height: 100%;
+      right: -400px;
       top: 0px;
       margin: 0px;
       transition: all .2s linear;
