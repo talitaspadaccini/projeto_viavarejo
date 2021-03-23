@@ -37,7 +37,7 @@ h1 {
   margin: 20px;
 }
 
-label, #check {
+label, #check, #check-fechar {
   display: none;
 }
 
