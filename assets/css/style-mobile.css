@@ -1,36 +1,64 @@
 /* Estilização para Mobile */
 
 @media screen and (max-width: 768px) {
+  /* ajustando tamanho no modo mobile */
+  /* fazendo aparecer o menu sanduiche no mobile */
+  label {
+    display: flex;
+    width: 18px;
+    margin: 20px;
+    z-index: 1;
+}
+
+input[type="checkbox"]:checked ~ nav {
+transform: translate(350px);
+}
 
   body {
       max-width: 768px;
       max-height : 1024px;
       min-width: 411px;
-      min-height: 731;
+      min-height: 731px;
+      display: flexbox;
   }
 
-  #img-menu {
-    display: flex;
-    width: 18px;
-    margin: 20px;
-}
-
+  /* itens do body ficam em coluna no mobile */
   .corpo {
       display: flex;
       flex-direction: column;
       width: 100%;
   }
 
-  form {
-      width: 90%;
-      border: none;
-      margin: -30px;
-  }
-
+/* titulo do formulário some no mobile */
 #titulo-form {
-display: none;
+  display: none;
 }
 
+  /* formulario perde a borda */
+  form {
+    display: flex;
+      width: 100%;
+      border: none;
+      margin: -30px;
+      border-bottom: 1px solid #979797;
+      padding-bottom: 30px;
+  }
+
+.tabela {
+  display: flexbox;
+  width: 95%;
+  padding-top: 20px;
+}
+
+#titulo-tabela {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+#descricao-valor {
+  text-align: center;
+}
+/* No mobile, há um menu lateral preto que aparece ao clicar no ícone */
   ul.hamburguer-menu {
       display: none;
       flex-direction: column;

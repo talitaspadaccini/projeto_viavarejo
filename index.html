@@ -20,17 +20,17 @@
         <!-- logo do cabeçalho -->
         <img id="logo" src="./assets/img/Ellipse 13.png" />
         <!-- texto do cabeçalho -->
-        <h1 id="titulo_cabecalho">Controle Financeiro</h1>
+        <h1 id="titulo-cabecalho">Controle Financeiro</h1>
       </div>
         <!-- imagem menu -->
-        <img id="img-menu" src="./assets/img/Shape.svg"/>
+        <label for="check"><img id="img-menu" src="./assets/img/Shape.svg"/></label>
         <!-- elementos navegáveis do menu-->
         <!--<nav class="modo-menu">-->
         <ul class="hamburguer-menu">
-            <img id="fechar" src="./assets/img/close_vector.png"></img>
-            <li><a id="menu_item1" href="/pagina1/1.html">Cadastro de transações</a></li>
-            <li><a id="menu_item2" href="/pagina2/2.html">Limpar dados</a></li>
-            <li><a id="menu_item3" href="/pagina3/3.html" ">Salvar no servidor</a></li>
+            <img src="./assets/img/close_vector.png"><i class="fechar"></i></img>
+            <li><a id="menu-item1" href="/pagina1/1.html">Cadastro de transações</a></li>
+            <li><a id="menu-item2" href="/pagina2/2.html">Limpar dados</a></li>
+            <li><a id="menu-item3" href="/pagina3/3.html" ">Salvar no servidor</a></li>
           </ul>
         </nav>
     </header>
@@ -39,27 +39,28 @@
     <form>
       <div id="titulo-form">Nova transação</div>
         <!-- menu drop down tipo de transação -->
-        <div class="tipotransacao" for="tipotransacao">Tipo de transação</div>
+        <div class="tipo-transacao" for="tipo-transacao">Tipo de transação</div>
           <select id="tipodetransacao" name="Tipo de Transação ">
             <option value="compra ">Compra</option>
             <option value="venda ">Venda de mercadoria</option>
           </select>
         <!-- input com nome da mercadoria -->
-        <div class="nomemercadoria " for="nomemercadoria">Nome da mercadoria</div>
-          <input type="text " id="nomemedarcadoria " placeholder="Input " />
+        <div class="nome-mercadoria " for="nome-mercadoria">Nome da mercadoria</div>
+          <input type="text " id="nomemedarcadoria " placeholder="Input " ></input>
         <!-- input com valor da mercadoria -->
         <div class="valor" for="valor">Valor</div>
-          <input type="valor " id="valor " placeholder="R$ 0,00 " />
-          <input id="botao-form" type="submit " value="Adicionar transação " />
+          <input type="valor " id="valor " placeholder="R$ 0,00 "></input>
+          <button id="botao-form" type="button ">Adicionar transação</button>
     </form>
 
     <!-- tabela extrato das transações -->
-    <div class="tabela">Extrato de transações 
+    <div class="tabela">
       <table>
+        <div id="titulo-tabela">Extrato de transações</div>
           <tr id="descricao">
             <th></th>
-            <th id="descricao_merc">Mercadoria</th>
-            <th id="descricao_valor">Valor</th>
+            <th id="descricao-merc">Mercadoria</th>
+            <th id="descricao-valor">Valor</th>
           </tr>
           <tr id = "transacoes">
             <td id="sinal">+</td>
@@ -78,7 +79,7 @@
           </tr>
           <tr id="total">
             <th></th>
-            <th id="titulo_total">Total</th>
+            <th id="titulo-total">Total</th>
             <th id="valor">R$ 12.909,99</th>
           </tr>
     </table>

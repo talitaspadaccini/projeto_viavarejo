@@ -8,6 +8,7 @@ header {
   width: 100%;
   display: block;
   background-color: rgba(224, 224, 224, 1);
+  min-width: 324px;
 }
 
 nav {
@@ -16,7 +17,7 @@ nav {
   justify-content: space-between;
   position: relative;
   height: 80px;
-  width: 100%;
+  width: 95%;
   max-width: 1100px;
   margin: auto;
 }
@@ -34,7 +35,7 @@ h1 {
   margin: 20px;
 }
 
-#img-menu {
+label {
   display: none;
 }
 
@@ -75,18 +76,22 @@ input {
   color: #888888;
   padding: 5px;
 }
-.tipotransacao,
-.nomemercadoria,
+
+.tipo-transacao,
+.nome-mercadoria,
 .valor {
   margin: 20px 0px 5px 0px;
 }
 
 #botao-form {
   margin: 15px 0px 5px 0px;
+  font-size: 14px;
   background: #333333;
   border-radius: 4px;
   color: white;
   text-align: center;
+  width: 100%;
+  height: 32px;
 }
 
 .tabela {
@@ -120,12 +125,12 @@ td {
     font-size: 14px;
   }
   
-#transacao, #descricao_merc, #titulo_total {
+#transacao, #descricao-merc, #titulo-total {
     text-align: left;
     font-size: 14px;
   }
   
-  #valor, #descricao_valor {
+  #valor, #descricao-valor {
     text-align: right;
     font-size: 14px;
   }
@@ -140,14 +145,14 @@ td {
   
   #situacao {
     text-align: right;
-    margin-top: -20px;
+    margin-top: -10px;
     font-size: 10px;
   }
 
 ul.hamburguer-menu {
   list-style-type: none;
   display: inline-flex;
-  padding: 5px;
+  padding: 0px;
   overflow: hidden;
   background-color: white;
   margin-right: 20px;
@@ -156,6 +161,8 @@ ul.hamburguer-menu {
 ul.hamburguer-menu li {
   float: left;
   padding: 14px 16px;
+  text-align: -webkit-match-parent;
+  display: list-item;
 }
 
 ul.hamburguer-menu #fechar {
@@ -163,12 +170,15 @@ ul.hamburguer-menu #fechar {
 }
 
 ul.hamburguer-menu li a {
-  display: block;
+  display: inline-block;
   color: #333333;
   text-align: center;
   text-decoration: none;
   }
 
-#menu_item1, #menu_item2 {
-    border-right: 1px solid #979797;
+#menu-item1, #menu-item2 {
+    margin: -10px;
+    border-right: 1px solid black;
+    padding: 2px 20px;
 }
+
