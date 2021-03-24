@@ -26,11 +26,10 @@
         <input type="checkbox" id="check">
         <label id="img-menu" for="check"><img src="./assets/img/Shape.svg"/></label>
         <!-- elementos navegáveis do menu-->
-        <!--<nav class="modo-menu">-->
-        <ul class="hamburguer-menu">
-            <input type="checkbox" id="check-fechar">
-            <label id="fechar" for="check-fechar"><img src="./assets/img/close_vector.png"/></label>
-            <li><a id="menu-item1" href="/pagina1/1.html">Cadastro de transações</a></li>
+        <!--<nav class="modo-menu">-->          
+          <ul class="hamburguer-menu">
+              <img id="fechar" src="./assets/img/close_vector.png"/>
+<li><a id="menu-item1" href="/pagina1/1.html">Cadastro de transações</a></li>
             <li><a id="menu-item2" href="/pagina2/2.html">Limpar dados</a></li>
             <li><a id="menu-item3" href="/pagina3/3.html" ">Salvar no servidor</a></li>
           </ul>
@@ -41,19 +40,24 @@
     <form>
       <div id="titulo-form">Nova transação</div>
         <!-- menu drop down tipo de transação -->
-        <div class="tipo-transacao" for="tipo-transacao">Tipo de transação</div>
+        <div class="itensformulario">
+        <div class="tipo-transacao" for="tipo-transacao">Tipo de transação
           <select id="tipodetransacao" name="Tipo de Transação ">
             <option value="compra ">Compra</option>
             <option value="venda ">Venda de mercadoria</option>
-          </select>
+          </select></div>
+          
         <!-- input com nome da mercadoria -->
-        <div class="nome-mercadoria " for="nome-mercadoria">Nome da mercadoria</div>
-          <input type="text " id="nomemedarcadoria " placeholder="Input " ></input>
+        <div class="form-input " for="nome-mercadoria">Nome da mercadoria
+          <input type="text " id="nomemedarcadoria " placeholder="Input " required></input></div>
         <!-- input com valor da mercadoria -->
-        <div class="valor" for="valor">Valor</div>
-          <input type="valor " id="valor " placeholder="R$ 0,00 "></input>
-          <button id="botao-form" type="button ">Adicionar transação</button>
-    </form>
+        <div class="form-input" for="valor">Valor
+          <input  id="valor " type="number " min="0,01" step="0,01" placeholder="R$ 0,00 " required></input></div></div>
+          <div class="botao">
+          <button id="botao-form" type="button ">Adicionar transação</button></div>
+          </div>
+        </form>
+      </div>
 
     <!-- tabela extrato das transações -->
     <div class="tabela">

@@ -1,0 +1,133 @@
+@media screen and (min-width: 645px) and (max-width: 768px) {
+  /* ajustando tamanho no modo tablet */
+ 
+  body {
+    max-width: 768px;
+    max-height : 1024px;
+    min-width: 645px;
+}
+
+  /* Cabeçalho */ 
+  label {
+    display: flex;
+    width: 18px;
+    margin: 20px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+nav {
+  width: 95%;
+  margin-left: 25px;
+}
+
+form {
+}
+
+.itens-cabecalho {
+  display: contents;
+}
+/* Menu */
+
+#img-menu {
+  display: initial;
+}
+
+/* No mobile, há um menu lateral preto que aparece ao clicar no ícone */
+ul.hamburguer-menu {
+  flex-direction: column;
+  position: absolute;
+  background-color: rgba(51, 51, 51, 1);
+  width: 351px;
+  height: 110vh;
+  right: -400px;
+  top: 0px;
+  margin: 0px;
+  transition: all .2s linear;
+  text-align: right;
+  animation-direction: left;
+}
+
+ul.hamburguer-menu li.right {float: right;}
+
+ul.hamburguer-menu li a {
+  color: white;
+}
+ul.hamburguer-menu li:hover {
+  background-color: #C4C4C4;
+  color: black;
+  transition: all .2s linear;
+}
+ul.hamburguer-menu #fechar {
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+#menu-item1, #menu-item2 {
+border-right: none;
+margin-right: -20px;
+}
+
+/* botão menu em funcionamento */
+#check:checked ~ ul.hamburguer-menu {
+  transform: translate(-400px);
+}
+
+#check:checked ~ ul.hamburguer-menu nav a .li{
+  opacity: 1;
+  margin-top: 0;
+}
+
+/* botão fechar em funcionamento */
+
+
+  /* itens do body ficam em coluna no mobile */
+  .corpo {
+      display: wrap;
+      flex-direction: column;
+      width: 100%;
+      margin-top: -20px;
+  }
+
+  /* Formulário */
+
+  form {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #titulo-form {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+
+  /* formulario se transforma em linha */
+  .itensformulario {
+    display: flex;
+  }
+
+
+/* Tabela */
+
+.tabela {
+  display: flexbox;
+  width: 95%;
+}
+
+#titulo-tabela {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#descricao-valor {
+  text-align: center;
+}
+
+
+  }
+}
