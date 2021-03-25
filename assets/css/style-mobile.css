@@ -1,8 +1,8 @@
-/* Estilização para Mobile */
+/* Styling for Mobile */
 
 @media screen and (max-width: 411px) {
-  /* ajustando tamanho no modo mobile */
-  /* fazendo aparecer o menu lateral no mobile */
+  /* adjusting size in mobile mode */
+  /* making the side menu appear on the mobile */
  
   body {
     max-width: 411px;
@@ -10,7 +10,8 @@
     min-height: 731px;
 }
 
-  /* Cabeçalho */ 
+  /* Header */ 
+
   label {
     display: flex;
     width: 18px;
@@ -24,16 +25,18 @@ nav {
   margin-left: 25px;
 }
 
-.itens-cabecalho {
+.header-items {
   display: contents;
 }
+
 /* Menu */
 
+/* the hamburger-menu icon appears */
 #img-menu {
   display: initial;
 }
 
-/* No mobile, há um menu lateral preto que aparece ao clicar no ícone */
+/* On mobile, there is a black side menu that appears when you click on the icon */
 ul.hamburguer-menu {
   flex-direction: column;
   position: absolute;
@@ -58,7 +61,7 @@ ul.hamburguer-menu li:hover {
   color: black;
   transition: all .2s linear;
 }
-ul.hamburguer-menu #fechar {
+ul.hamburguer-menu #close {
   display: flex;
   width: 16px;
   height: 16px;
@@ -71,7 +74,7 @@ border-right: none;
 margin-right: -20px;
 }
 
-/* botão menu em funcionamento */
+/* menu button in operation */
 #check:checked ~ ul.hamburguer-menu {
   transform: translate(-400px);
 }
@@ -81,24 +84,26 @@ margin-right: -20px;
   margin-top: 0;
 }
 
-/* botão fechar em funcionamento */
+/* close button in operation */
 
 
-  /* itens do body ficam em coluna no mobile */
-  .corpo {
+  /* body items are in a column on the mobile */
+  .body-elements {
       display: flexbox;
       flex-direction: column;
       width: 100%;
       margin-top: -20px;
   }
 
-  /* Formulário */
-/* titulo do formulário some no mobile */
-#titulo-form {
+  /* Form */
+
+/* title of the form add on mobile */
+#form-title {
   display: none;
 }
 
-  /* formulario perde a borda */
+  /* form loses the border */
+
   form {
     display: flex;
     width: 100%;
@@ -107,24 +112,24 @@ margin-right: -20px;
       padding-bottom: 30px;
   }
 
-  .itensformulario {
+  .form-items {
     width: 100%;
   }
 
-/* Tabela */
+/* Table */
 
-.tabela {
+.table-statement {
   display: flexbox;
   width: 95%;
   margin-top: 10px;
 }
 
-#titulo-tabela {
+#table-title {
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
-#descricao-valor {
+#value-description {
   text-align: center;
 }
 

@@ -6,7 +6,7 @@
         Controle Financeiro - Via Varejo
     </title>
     <meta charset="UTF-8" />
-    <!-- rel é como o arquivo será interpretado / style é como será apresentado -->
+    <!-- rel is how the file will be interpreted / style is how it will be presented -->
     <link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
     <link href="./assets/css/style-mobile.css" rel="stylesheet" type="text/css" />
     <link href="./assets/css/style-tablet.css" rel="stylesheet" type="text/css" />
@@ -16,81 +16,79 @@
 <body>
     <header>
 <nav>
-      <div class="itens-cabecalho">
-        <!-- logo do cabeçalho -->
+      <div class="header-items">
+        <!-- header logo -->
         <img id="logo" src="./assets/img/Ellipse 13.png" />
-        <!-- texto do cabeçalho -->
-        <h1 id="titulo-cabecalho">Controle Financeiro</h1>
+        <!-- header title -->
+        <h1 id="header-title">Controle Financeiro</h1>
       </div>
-        <!-- imagem menu -->
+        <!-- menu image -->
         <input type="checkbox" id="check">
         <label id="img-menu" for="check"><img src="./assets/img/Shape.svg"/></label>
-        <!-- elementos navegáveis do menu-->
-        <!--<nav class="modo-menu">-->          
+        <!-- navigable menu elements-->        
           <ul class="hamburguer-menu">
-              <img id="fechar" src="./assets/img/close_vector.png"/>
+              <img id="close" src="./assets/img/close_vector.png"/>
 <li><a id="menu-item1" href="/pagina1/1.html">Cadastro de transações</a></li>
             <li><a id="menu-item2" href="/pagina2/2.html">Limpar dados</a></li>
             <li><a id="menu-item3" href="/pagina3/3.html" ">Salvar no servidor</a></li>
           </ul>
         </nav>
     </header>
-    <!-- formulario de nova transação -->
-    <div class="corpo">
+    <!-- new transaction form -->
+    <div class="body-elements">
     <form>
-      <div id="titulo-form">Nova transação</div>
-        <!-- menu drop down tipo de transação -->
-        <div class="itensformulario">
-        <div class="tipo-transacao" for="tipo-transacao">Tipo de transação
-          <select id="tipodetransacao" name="Tipo de Transação ">
-            <option value="compra ">Compra</option>
-            <option value="venda ">Venda de mercadoria</option>
+      <div id="form-title">Nova transação</div>
+        <!-- drop down menu - transaction type -->
+        <div class="form-items">
+        <div class="transaction-type" for="transactiontype">Tipo de transação
+          <select id="transactiontype" name="Tipo de Transação ">
+            <option value="purchase ">Compra</option>
+            <option value="sale ">Venda de mercadoria</option>
           </select></div>
           
-        <!-- input com nome da mercadoria -->
-        <div class="form-input " for="nome-mercadoria">Nome da mercadoria
-          <input type="text " id="nomemedarcadoria " placeholder="Input " required></input></div>
+        <!-- input with commodity name -->
+        <div class="form-input-comm " >Nome da mercadoria
+          <input type="text " id="commodity-name " placeholder="Input " required></input></div>
         <!-- input com valor da mercadoria -->
-        <div class="form-input" for="valor">Valor
-          <input  id="valor " type="number " min="0,01" step="0,01" placeholder="R$ 0,00 " required></input></div></div>
-          <div class="botao">
-          <button id="botao-form" type="button ">Adicionar transação</button></div>
-          </div>
+        <div class="form-input-value">Valor
+          <input  type="number " id="value-input" min="0,01" step="0,01" placeholder="R$ 0,00 " required></input></div></div>
+          <div>
+          <button id="button-form" type="button ">Adicionar transação</button></div>
         </form>
-      </div>
 
-    <!-- tabela extrato das transações -->
-    <div class="tabela">
+    <!-- transaction statement table -->
+    <div class="table-statement">
       <table>
-        <div id="titulo-tabela">Extrato de transações</div>
-          <tr id="descricao">
+        <div id="table-title">Extrato de transações</div>
+          <tr id="tr_description">
             <th></th>
-            <th id="descricao-merc">Mercadoria</th>
-            <th id="descricao-valor">Valor</th>
+            <th id="commodity-description">Mercadoria</th>
+            <th id="value-description">Valor</th>
+          </tr>
+          <tr id = "tr_transaction">
+            <td id="sign">+</td>
+            <td id="transaction">Lorem ipsum dolor sit amet consectetur</td>
+            <td id="value-transaction">R$ 12.999,99</td>
           </tr>
           <tr id = "transacoes">
-            <td id="sinal">+</td>
-            <td id="transacao">Lorem ipsum dolor sit amet consectetur</td>
-            <td id="valor">R$ 12.999,99</td>
+            <td id="sign">-</td>
+            <td id="transaction">Quis nostrud exercitation</td>
+            <td id="value-transaction">R$ 99,99</td>
           </tr>
           <tr id = "transacoes">
-            <td id="sinal">-</td>
-            <td id="transacao">Quis nostrud exercitation</td>
-            <td id="valor">R$ 99,99</td>
-          </tr>
-          <tr id = "transacoes">
-            <td id="sinal">+</td>
-            <td id="transacao">Lorem ipsum</td>
-            <td id="valor">R$ 9,99</td>
+            <td id="sign">+</td>
+            <td id="transaction">Lorem ipsum</td>
+            <td id="value-transaction">R$ 9,99</td>
           </tr>
           <tr id="total">
             <th></th>
-            <th id="titulo-total">Total</th>
-            <th id="valor">R$ 12.909,99</th>
+            <th id="total-title">Total</th>
+            <th id="value-transaction">R$ 12.909,99</th>
           </tr>
     </table>
-    <span id="situacao">(LUCRO)</span>
+    <span id="state">(LUCRO)</span>
   </div>
+</div>
 </div>
   </body>
 </html>
