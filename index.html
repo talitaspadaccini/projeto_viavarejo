@@ -6,6 +6,8 @@
         Controle Financeiro - Via Varejo
     </title>
     <meta charset="UTF-8" />
+    <!-- This gives the browser instructions on how to control the page's dimensions and scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- rel is how the file will be interpreted / style is how it will be presented -->
     <link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
     <link href="./assets/css/style-mobile.css" rel="stylesheet" type="text/css" />
@@ -52,7 +54,7 @@
         <!-- input com valor da mercadoria -->
         <div class="form-input-value">Valor
           <input  type="number " id="value-input" min="0,01" step="0,01" placeholder="R$ 0,00 " required></input></div></div>
-          <div>
+          <div class="button">
           <button id="button-form" type="button ">Adicionar transação</button></div>
         </form>
 
@@ -70,12 +72,12 @@
             <td id="transaction">Lorem ipsum dolor sit amet consectetur</td>
             <td id="value-transaction">R$ 12.999,99</td>
           </tr>
-          <tr id = "transacoes">
+          <tr id = "tr_transaction">
             <td id="sign">-</td>
             <td id="transaction">Quis nostrud exercitation</td>
             <td id="value-transaction">R$ 99,99</td>
           </tr>
-          <tr id = "transacoes">
+          <tr id = "tr_transaction">
             <td id="sign">+</td>
             <td id="transaction">Lorem ipsum</td>
             <td id="value-transaction">R$ 9,99</td>
