@@ -1,4 +1,4 @@
-@media screen and (min-width: 560px) and (max-width: 800px) and (orientation: portrait) {
+@media screen and (min-width: 560px) and (max-width: 800px) {
   /* adjusting size in tablet mode */
  
   body {
@@ -32,7 +32,7 @@ ul.hamburguer-menu {
   flex-direction: column;
   background-color: rgba(51, 51, 51, 1);
   width: 252px;
-  height: 110vh;
+  height: 100%;
   right: -300px;
   top: 0px;
   margin: 0px;
@@ -63,15 +63,12 @@ ul.hamburguer-menu #close {
 border-right: none;
 }
 
-/* menu button in operation */
-#img-menu:hover ~ ul.hamburguer-menu {
+/* menu and close button in operation */
+#check-menu:checked ~ ul.hamburguer-menu {
   display: flex;
   position: fixed;
   transform: translate(-300px);
 }
-
-/* menu close in operation */
-
 
   /* itens do body ficam em coluna no mobile */
   .body-elements {

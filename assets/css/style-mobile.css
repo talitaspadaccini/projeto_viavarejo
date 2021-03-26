@@ -36,7 +36,7 @@ ul.hamburguer-menu {
   flex-direction: column;
   background-color: rgba(51, 51, 51, 1);
   width: 351px;
-  height: 110vh;
+  height: 100%;
   right: -300px;
   top: 0px;
   margin: 0px;
@@ -68,15 +68,12 @@ border-right: none;
 margin-right: -20px;
 }
 
-/* menu button in operation */
-#img-menu:hover ~ ul.hamburguer-menu {
+/* menu and close button in operation */
+#check-menu:checked ~ ul.hamburguer-menu {
   display: flex;
   position: fixed;
   transform: translate(-300px);
 }
-
-/* close button in operation */
-
 
   /* body items are in a column on the mobile */
   .body-elements {

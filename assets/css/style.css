@@ -1,10 +1,10 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-weight: normal;
   width: 100%;
   display: block;
@@ -33,7 +33,7 @@ nav {
 }
 
 h1 {
-    display: block;
+  display: block;
   font-size: 1.2rem;
   margin-left: 10px;
   font-weight: normal;
@@ -45,10 +45,12 @@ h1 {
   align-items: center;
 }
 
-/* Menu */ 
+/* Menu */
 
-#img-menu {
-    display: none;
+#img-menu,
+#check-menu,
+#check-close-menu {
+  display: none;
 }
 
 .hamburguer-menu {
@@ -62,7 +64,7 @@ ul.hamburguer-menu {
 }
 
 ul.hamburguer-menu li {
-    display:inline-flex;
+  display: inline-flex;
   float: left;
   padding: 10px;
   text-align: -webkit-match-parent;
@@ -131,7 +133,8 @@ input {
 }
 
 .transaction-type,
-.form-input-comm, .form-input-value {
+.form-input-comm,
+.form-input-value {
   margin: 20px 0px 5px 0px;
   display: flex;
   flex-direction: column;
@@ -149,10 +152,14 @@ input {
   cursor: pointer;
 }
 
+input:invalid {
+  border: 1px solid red;
+}
+
 /* Table */
 
 table {
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 .table-statement {
