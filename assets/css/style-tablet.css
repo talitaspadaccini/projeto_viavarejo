@@ -8,17 +8,9 @@
 }
 
   /* Header */ 
-  label {
-    display: flex;
-    width: 18px;
-    margin: 20px;
-    z-index: 1;
-    cursor: pointer;
-}
 
 nav {
   width: 95%;
-  margin-left: 25px;
 }
 
 .header-items {
@@ -27,11 +19,17 @@ nav {
 
 /* Menu */
 
+#img-menu {
+  display: flex;
+    width: 18px;
+    z-index: 1;
+    cursor: pointer;
+}
+
 /* On the tablet, there is a black side menu that appears when you click the icon */
 ul.hamburguer-menu {
-  display: flex;
+  display: none;
   flex-direction: column;
-  position: absolute;
   background-color: rgba(51, 51, 51, 1);
   width: 252px;
   height: 110vh;
@@ -66,13 +64,10 @@ border-right: none;
 }
 
 /* menu button in operation */
-#check:checked ~ ul.hamburguer-menu {
+#img-menu:hover ~ ul.hamburguer-menu {
+  display: flex;
+  position: fixed;
   transform: translate(-300px);
-}
-
-#check:checked ~ ul.hamburguer-menu nav a .li{
-  opacity: 1;
-  margin-top: 0;
 }
 
 /* menu close in operation */
@@ -93,7 +88,6 @@ border-right: none;
     width: 100%;
     min-width: 279px;
     padding: 1em;
-    margin-left: 0px;
   }
 
   #form-title {

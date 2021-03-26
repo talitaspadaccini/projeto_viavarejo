@@ -13,17 +13,8 @@
 
   /* Header */ 
 
-  label {
-    display: flex;
-    width: 18px;
-    margin: 20px;
-    z-index: 1;
-    cursor: pointer;
-}
-
 nav {
   width: 95%;
-  margin-left: 25px;
 }
 
 .header-items {
@@ -34,29 +25,27 @@ nav {
 
 /* the hamburger-menu icon appears */
 #img-menu {
-  display: initial;
+  display: flex;
+    width: 18px;
+    z-index: 1;
+    cursor: pointer;
 }
 
-/* On mobile, there is a black side menu that appears when you click on the icon */
 ul.hamburguer-menu {
-  display: flex;
+  display: none;
   flex-direction: column;
-  position: absolute;
   background-color: rgba(51, 51, 51, 1);
   width: 351px;
   height: 110vh;
-  right: -400px;
+  right: -300px;
   top: 0px;
   margin: 0px;
   transition: all .2s linear;
   text-align: right;
   animation-direction: left;
-  
 }
 
-ul.hamburguer-menu li.right {
-  float: right;
-}
+ul.hamburguer-menu li.right {float: right;}
 
 ul.hamburguer-menu li a {
   color: white;
@@ -80,13 +69,10 @@ margin-right: -20px;
 }
 
 /* menu button in operation */
-#check:checked ~ ul.hamburguer-menu {
-  transform: translate(-400px);
-}
-
-#check:checked ~ ul.hamburguer-menu nav a .li{
-  opacity: 1;
-  margin-top: 0;
+#img-menu:hover ~ ul.hamburguer-menu {
+  display: flex;
+  position: fixed;
+  transform: translate(-300px);
 }
 
 /* close button in operation */
@@ -115,7 +101,6 @@ margin-right: -20px;
       border: none;
       border-bottom: 1px solid #979797;
       padding-bottom: 30px;
-      margin-left: 0px;
   }
 
   .form-items {
@@ -124,10 +109,12 @@ margin-right: -20px;
 
 /* Table */
 
+
 .table-statement {
-  display: flexbox;
+  display: flex;
   width: 95%;
-  margin-top: 10px;
+  padding: 10px;
+  box-sizing: content-box;
 }
 
 #table-title {

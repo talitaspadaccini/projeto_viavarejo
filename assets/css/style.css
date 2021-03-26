@@ -1,9 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
   font-family: 'Lato';
   font-weight: normal;
   width: 100%;
   display: block;
-  min-width: 801px;
+  min-width: 800px;
+  box-sizing: border-box;
 }
 
 /* Header */
@@ -37,26 +43,22 @@ h1 {
 .header-items {
   display: flex;
   align-items: center;
-  margin: 20px;
 }
 
 /* Menu */ 
 
-/* Do not show on the desktop hamburger-menu, check and close button */
-label,
-#check,
-#close {
-  display: none;
+#img-menu {
+    display: none;
+}
+
+.hamburguer-menu {
+  display: block;
+  overflow: hidden;
 }
 
 ul.hamburguer-menu {
   list-style-type: none;
-  display: block;
-  padding: 0px;
-  overflow: hidden;
   background-color: white;
-  margin-right: 0px;
-  padding: 0px;
 }
 
 ul.hamburguer-menu li {
@@ -108,7 +110,6 @@ form {
   flex-direction: column;
   padding: 1em;
   width: 38%;
-  margin-left: 20px;
 }
 
 #form-title {
