@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+.msg-error {
+  color: red;
+}
+
 body {
   font-family: "Lato";
   font-weight: normal;
