@@ -14,7 +14,7 @@
   <link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
   <link href="./assets/css/style-mobile.css" rel="stylesheet" type="text/css" />
   <link href="./assets/css/style-tablet.css" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"/>
 </head>
 
 <body>
@@ -41,26 +41,28 @@
     </header>
     <!-- new transaction form -->
     <div class=" body-elements">
-            <form>
+            <form id="form-transaction" action="" method="GET">
               <div id="form-title">Nova transação</div>
               <!-- drop down menu - transaction type -->
               <div class="form-items">
                 <div class="transaction-type" for="transactiontype">Tipo de transação
                   <select id="transactiontype" name="Tipo de Transação ">
+                    <option disabled selected>Selecione</option>
                     <option value="purchase ">Compra</option>
                     <option value="sale ">Venda de mercadoria</option>
                   </select></div>
 
                 <!-- input with commodity name -->
                 <div class="form-input-comm ">Nome da mercadoria
-                  <input type="text" id="commodity-name " placeholder="Input "></input></div>
-                <!-- input com valor da mercadoria -->
+                  <input type="text" id="commodity-name " placeholder="Input "></input>
+                  <span class="msg-error msg-commodity"></span></div>
+                <!-- input with commodity value -->
                 <div class="form-input-value">Valor
                   <input type="value" id="value-input" placeholder="R$ 0,00"></input>
                 </div>
               </div>
               <div class="button">
-                <button id="button-form" type="submit ">Adicionar transação</button></div>
+                <button id="button-form" type="submit">Adicionar transação</button></div>
             </form>
 
             <!-- transaction statement table -->
@@ -97,6 +99,8 @@
             </div>
             </div>
             </div>
+  <!-- The defer attribute tells the browser to execute the script only when the HTML parsing is complete -->
+  <script src="./script/index.js" type="text/javascript"></script>  
 </body>
 
 </html>
