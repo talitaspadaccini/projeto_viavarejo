@@ -41,7 +41,7 @@
     </header>
     <!-- new transaction form -->
     <div class=" body-elements">
-            <form id="form-transaction" action=# method="POST" onsubmit="return validForm(this)">
+            <form id="form-transaction" action=# method="GET" onsubmit="return validForm(this)">
               <div id="form-title">Nova transação</div>
               <!-- drop down menu - transaction type -->
               <div class="form-items">
@@ -51,17 +51,17 @@
                     <option value="purchase ">Compra</option>
                     <option value="sale ">Venda de mercadoria</option>
                   </select>
-                  <span class="msg-error msg-option"></span></div>
+                  <span class="msg-error msg-option"></span>
                 </div>
 
                 <!-- input with commodity name -->
                 <div class="form-input-comm ">Nome da mercadoria
-                  <input type="text" name="nameCommodity" id="commodity-name " placeholder="Input "></input>
+                  <input type="text" name="nameCommodity" id="commodity-name" placeholder="Input "></input>
                   <span class="msg-error msg-commodity"></span></div>
                 <!-- input with commodity value -->
                 <div class="form-input-value">Valor
                   <input type="text" name="valueInput" id="value-input" maxlength="14" placeholder="R$ 0,00" onkeyup="valueFormated()"></input>
-                  <span class="msg-error msg-value"></span></div>
+                  <span class="msg-error msg-value"></span>
                 </div>
               </div>
               <div class="button">
@@ -70,28 +70,14 @@
 
             <!-- transaction statement table -->
             <div class="table-statement">
-              <table>
+              <table id="table-container">
                 <div id="table-title">Extrato de transações</div>
                 <tr id="tr_description">
                   <th></th>
                   <th id="commodity-description">Mercadoria</th>
                   <th id="value-description">Valor</th>
                 </tr>
-                <tr id="tr_transaction">
-                  <td id="sign">+</td>
-                  <td id="transaction">Lorem ipsum dolor sit amet consectetur</td>
-                  <td id="value-transaction">R$ 12.999,99</td>
-                </tr>
-                <tr id="tr_transaction">
-                  <td id="sign">-</td>
-                  <td id="transaction">Quis nostrud exercitation</td>
-                  <td id="value-transaction">R$ 99,99</td>
-                </tr>
-                <tr id="tr_transaction">
-                  <td id="sign">+</td>
-                  <td id="transaction">Lorem ipsum</td>
-                  <td id="value-transaction">R$ 9,99</td>
-                </tr>
+                
                 <tr id="total">
                   <th></th>
                   <th id="total-title">Total</th>
