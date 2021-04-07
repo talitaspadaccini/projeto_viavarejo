@@ -1,82 +1,77 @@
 @media screen and (min-width: 560px) and (max-width: 800px) {
+  
   /* adjusting size in tablet mode */
- 
   body {
     max-width: 800px;
     max-height : 1024px;
     min-width: 560px;
-}
+  }
 
   /* Header */ 
-
-nav {
-  width: 95%;
-}
-
-.header-items {
-  display: contents;
-}
-
-/* Menu */
-
-#img-menu {
-  display: flex;
+  nav {
+    width: 95%;
+  }
+  
+  .header-items {
+    display: contents;
+  }
+  
+  /* Menu */
+  
+  #img-menu {
+    display: flex;
     width: 18px;
     z-index: 1;
     cursor: pointer;
-}
+  }
+  
+  /* On the tablet, there is a black side menu that appears when you click the icon */
+  
+  ul.hamburguer-menu {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(51, 51, 51, 1);
+    width: 252px;
+    height: 100%;
+    right: -300px;
+    top: 0px;
+    margin: 0px;
+    transition: all .2s linear;
+    text-align: right;
+    animation-direction: left;
+  }
+  
+  ul.hamburguer-menu li.right {float: right;}
+  
+  ul.hamburguer-menu li a {
+    color: white;
+  }
+  
+  ul.hamburguer-menu li:hover {
+    background-color: #C4C4C4;
+    color: black;
+    transition: all .2s linear;
+  }
+  
+  ul.hamburguer-menu #close {
+    display: flex;
+    width: 16px;
+    height: 16px;
+    margin: 20px;
+    cursor: pointer;
+  }
 
-/* On the tablet, there is a black side menu that appears when you click the icon */
-ul.hamburguer-menu {
-  display: none;
-  flex-direction: column;
-  background-color: rgba(51, 51, 51, 1);
-  width: 252px;
-  height: 100%;
-  right: -300px;
-  top: 0px;
-  margin: 0px;
-  transition: all .2s linear;
-  text-align: right;
-  animation-direction: left;
-}
-
-ul.hamburguer-menu li.right {float: right;}
-
-ul.hamburguer-menu li a {
-  color: white;
-}
-ul.hamburguer-menu li:hover {
-  background-color: #C4C4C4;
-  color: black;
-  transition: all .2s linear;
-}
-ul.hamburguer-menu #close {
-  display: flex;
-  width: 16px;
-  height: 16px;
-  margin: 20px;
-  cursor: pointer;
-}
-
-#menu-item1, #menu-item2 {
-border-right: none;
-}
-
-/* menu and close button in operation */
-#check-menu:checked ~ ul.hamburguer-menu {
-  display: flex;
-  position: fixed;
-  transform: translate(-300px);
-}
+  #menu-item1, #menu-item2 {
+    border-right: none;
+  }
 
   /* itens do body ficam em coluna no mobile */
   .body-elements {
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      justify-content: center;
-      width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 95%;
   }
 
   /* Form */
@@ -113,39 +108,33 @@ border-right: none;
     margin: 10px 0px 0px 0px;
     padding: 0.3em;
   }
-
-.button {
-  width: 100%;
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-#button-form {
-  width: 30%;
-  padding: 8px 0;
+  
+  .button {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
   }
 
+  #button-form {
+    width: 30%;
+    padding: 8px 0;
+  }
+  
+  /* Table */
+  
+  table {
+    width: 100%;
+  }
 
-/* Table */
+  .table-statement {
+    display: flexbox;
+    width: 100%;
+    margin: 0px;
+    margin-top: 30px;
+  }
 
-table {
-  width: 100%;
-}
-
-.table-statement {
-  display: flexbox;
-  width: 100%;
-  margin: 0px;
-  margin-top: 30px;
-}
-
-#table-title {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-
-
-
+  #table-title {
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 }

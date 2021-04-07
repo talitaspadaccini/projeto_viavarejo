@@ -1,6 +1,6 @@
 // Global Vars
 let elementValue = document.getElementById("value-input");
-let commodityRecord = document.getElementById("commodity-name").value;
+let elementCommodity = document.getElementById("commodity-name");
 
 // validForm() function where all checks will be made, this function is assigned to the form's “submit” event
 function validForm(frm) {
@@ -49,6 +49,7 @@ function validForm(frm) {
   if (countError > 0) {
     evt.preventDefault();
   }
+  registerProduct();
 }
 
 // Function to standardize writing of values as currency. */
@@ -76,20 +77,26 @@ function valueFormated(frm) {
 // Function that will store the data entry in the local storage
 function registerProduct() {
   let arrayFormData = [];
+
+  for (let i = 0, i < arrayFormData.length, i++ ) {
+
+    elementValue = elementValue.value;
+    elementCommodity = elementCommodity.value;
   
-  // Add the information to the array
-  let pullData = {
-    commodityRecord: commodityRecord,
-    elementValue: elementValue
-  };
+    // Add the information to the array
+    let pullData = {
+      elementCommodity: elementCommodity,
+      elementValue: elementValue
+    };
 
-  arrayFormData.push(pullData);
+    arrayFormData.push(pullData);
 
-  // Save the changed list
-  localStorage.setItem("arrayJSON", JSON.stringify(arrayFormData));
+    // Save the changed list
+    localStorage.setItem("arrayJSON", JSON.stringify(arrayFormData));
 
-  // Get the list already registered, if there is none, it turns into an empty array
-  arrayFormData = JSON.parse(localStorage.getItem("arrayJSON"));
+    // Get the list already registered, if there is none, it turns into an empty array
+    arrayFormData = JSON.parse(localStorage.getItem("arrayJSON"));
+  }
 }
 /*
 // Function that adds the data captured in the local storage to the table
@@ -101,7 +108,7 @@ function addTable(arrayFormData) {
   let tdCommodity = document.createElement("td");
   let tdValue = document.createElement("td");
 
-  tdCommodity.textContent = arrayFormData.commodityRecord;
+  tdCommodity.textContent = arrayFormData.elementCommodity;
   tdValue.textContent = arrayFormData.valueRecord;
 
   tr.appendChild(tdCommodity);

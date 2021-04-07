@@ -50,10 +50,7 @@ h1 {
 }
 
 /* Menu */
-
-#img-menu,
-#check-menu,
-#check-close-menu {
+#img-menu,{
   display: none;
 }
 
@@ -94,7 +91,6 @@ ul.hamburguer-menu li a {
 }
 
 /* Body */
-
 .body-elements {
   display: flex;
   flex-direction: row;
@@ -106,7 +102,6 @@ ul.hamburguer-menu li a {
 }
 
 /* Form */
-
 form {
   background: #ffffff;
   border: 1px solid #979797;
@@ -193,15 +188,12 @@ td {
   font-size: 14px;
 }
 
-#transaction,
 #commodity-description,
 #total-title {
   text-align: left;
   font-size: 14px;
 }
 
-#value-transaction,
-#value-description,
 #value-total {
   text-align: right;
   font-size: 14px;
