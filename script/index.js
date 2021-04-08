@@ -2,6 +2,17 @@
 let elementValue = document.getElementById("value-input");
 let elementCommodity = document.getElementById("commodity-name");
 
+// Dinamic Menu
+
+function toggleMenu() {
+  let menu = document.querySelector(".hamburguer-menu").classList;
+  if ([...menu].indexOf("oppened") == -1) {
+    menu.add("oppened");
+  } else {
+    menu.remove("oppened");
+  }
+}
+
 // validForm() function where all checks will be made, this function is assigned to the form's “submit” event
 function validForm(frm) {
   // Variable countError will be incremented, if a field's value is invalid
@@ -73,7 +84,7 @@ function valueFormated(frm) {
   if (valueOption === "NaN") elementValue.value = "";
 }
 
-
+/*
 // Function that will store the data entry in the local storage
 function registerProduct() {
   let arrayFormData = [];
@@ -98,7 +109,6 @@ function registerProduct() {
     arrayFormData = JSON.parse(localStorage.getItem("arrayJSON"));
   }
 }
-/*
 // Function that adds the data captured in the local storage to the table
 function addTable(arrayFormData) {
   let tableRef = document.getElementById("table-container").getElementsByTagName("tbody")[0];
