@@ -3,6 +3,7 @@ let countError = 0; // Variable countError will be incremented, if a field's val
 let elementType = document.getElementById("transactiontype");
 let elementValue = document.getElementById("value-input");
 let elementCommodity = document.getElementById("commodity-name");
+let arrayFormData = new Array();
 
 // Dinamic Menu
 
@@ -62,13 +63,14 @@ function validForm(frm) {
   }
   // If countError> 0, do not submit the page for recording, using the evt.preventDefault() method
   evtPrevent();
-  registerProduct();
 }
 
 function evtPrevent(evt) {
   if (countError > 0) {
     evt.preventDefault();
   }
+
+  addTable();
 }
 /*
 function clearErrors() {
@@ -100,8 +102,6 @@ function valueFormated(frm) {
 
 // Function that will store the data entry in the local storage
 function registerProduct() {
-  let arrayFormData = new Array();
-
   let data = {
     elementType: elementType.value,
     elementCommodity: elementCommodity.value,
@@ -112,40 +112,29 @@ function registerProduct() {
   if (localStorage.hasOwnProperty("arrayFormData")) {
     arrayFormData = JSON.parse(localStorage.getItem("arrayFormData"));
   }
-
   // Add values to the created array
   arrayFormData.push(data);
-  
-// Save the changed list
-localStorage.setItem("arrayFormData", JSON.stringify(arrayFormData));
+
+  // Save the changed list
+  localStorage.setItem("arrayFormData", JSON.stringify(arrayFormData));
 }
 
- // addTable();
-
-  
-
 //Function that adds the data captured in the local storage to the table
-/*function addTable() {
-  document.querySelector(".table-statement tbody").innerHTML = "";
+function addTable() {
+  registerProduct();
+  document.querySelector(".table-container tbody").innerHTML = "";
 
-  for (let i = 0; i < arrayFormData.legth; i++) {
+  for (let key in arrayFormData) {
     let typeTransaction = "+";
 
-    if (arrayFormData[i].elementType == "sale") {
+    if (key.elementType == "sale") {
       typeTransaction = "-";
     }
-    document.querySelector(".table-statement tbody").innerHTML +=
-      `
-      < tr >
-      <td class="tdTypeTransaction">` +
-      typeTransaction +
-      `</td>
-      <td class="tdCommodity">` +
-      arrayFormData[i].elementCommodity +
-      `</td>
-      <td class="tdValue">` +
-      arrayFormData[i].elementValue +
-      `</td>
+    console.log(key);
+    document.querySelector(".table-container tbody").innerHTML += `<tr>
+        <td class="tdTypeTransaction">${typeTransaction}</td>
+        <td class="tdCommodity">${arrayFormData[key].elementCommodity}</td>
+        <td class="tdValue">${arrayFormData[key].elementValue}</td>
       </tr>`;
   }
-}*/
+}
