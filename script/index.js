@@ -3,9 +3,6 @@ let countError = 0; // Variable countError will be incremented, if a field's val
 let elementType = document.getElementById("transactiontype");
 let elementValue = document.getElementById("value-input");
 let elementCommodity = document.getElementById("commodity-name");
-let arrayFormData = [];
-
-arrayFormData = JSON.parse(localStorage.getItem("arrayJSON"));
 
 // Dinamic Menu
 
@@ -103,22 +100,32 @@ function valueFormated(frm) {
 
 // Function that will store the data entry in the local storage
 function registerProduct() {
+  let arrayFormData = new Array();
+
   let data = {
     elementType: elementType.value,
     elementCommodity: elementCommodity.value,
     elementValue: elementValue.value
   };
 
+  // Checks whether the property exists. If it exists, convert from String to Object
+  if (localStorage.hasOwnProperty("arrayFormData")) {
+    arrayFormData = JSON.parse(localStorage.getItem("arrayFormData"));
+  }
+
+  // Add values to the created array
   arrayFormData.push(data);
-
-  addTable();
-
-  // Save the changed list
-  localStorage.setItem("arrayJSON", JSON.stringify(arrayFormData));
+  
+// Save the changed list
+localStorage.setItem("arrayFormData", JSON.stringify(arrayFormData));
 }
 
+ // addTable();
+
+  
+
 //Function that adds the data captured in the local storage to the table
-function addTable() {
+/*function addTable() {
   document.querySelector(".table-statement tbody").innerHTML = "";
 
   for (let i = 0; i < arrayFormData.legth; i++) {
@@ -141,4 +148,4 @@ function addTable() {
       `</td>
       </tr>`;
   }
-}
+}*/
