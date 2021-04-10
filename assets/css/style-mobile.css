@@ -3,7 +3,7 @@
 @media only screen and (max-width: 559px) {
   /* adjusting size in mobile mode */
   /* making the side menu appear on the mobile */
- 
+
   body {
     max-width: 559px;
     max-height: 1024px;
@@ -11,7 +11,7 @@
     min-width: 0px;
   }
 
-  /* Header */ 
+  /* Header */
   nav {
     width: 95%;
   }
@@ -19,9 +19,9 @@
   .header-items {
     display: contents;
   }
-  
+
   /* Menu */
-  
+
   /* the hamburger-menu icon appears */
   #img-menu {
     display: flex;
@@ -39,21 +39,23 @@
     right: -300px;
     top: 0px;
     margin: 0px;
-    transition: all .2s linear;
+    transition: all 0.2s linear;
     text-align: right;
     animation-direction: left;
   }
 
-  ul.hamburguer-menu li.right {float: right;}
+  ul.hamburguer-menu li.right {
+    float: right;
+  }
 
   ul.hamburguer-menu li a {
     color: white;
   }
 
   ul.hamburguer-menu li:hover {
-    background-color: #C4C4C4;
+    background-color: #c4c4c4;
     color: black;
-    transition: all .2s linear;
+    transition: all 0.2s linear;
   }
 
   button.open-menu {
@@ -81,7 +83,8 @@
     transform: translate(-300px);
   }
 
-  #menu-item1, #menu-item2 {
+  #menu-item1,
+  #menu-item2 {
     border-right: none;
     margin-right: -20px;
   }
@@ -115,7 +118,7 @@
   .form-items {
     width: 100%;
   }
-  
+
   /* Table */
 
   .table-statement {

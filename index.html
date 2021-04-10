@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html>
@@ -36,23 +37,23 @@
     </nav>
   </header>
   <!-- new transaction form -->
-  <div class=" body-elements">
-    <form id="form-transaction" action=# method="GET" onsubmit="return validForm(this)">
+  <div class="body-elements">
+    <form class="form-transaction" action=# method="GET" onsubmit="return validForm(this)">
       <div id="form-title">Nova transação</div>
       
       <!-- drop down menu - transaction type -->
       <div class="form-items">
         <div class="transaction-type" for="transactiontype">Tipo de transação
-          <select id="transactiontype" name="typeTransaction">
+        <select id="transactiontype" name="typeTransaction">
             <option value="selection" disabled selected>Selecione</option>
-            <option value="purchase ">Compra</option>
-            <option value="sale ">Venda de mercadoria</option>
+            <option value="purchase">Compra</option>
+            <option value="sale">Venda de mercadoria</option>
           </select>
           <span class="msg-error msg-option"></span>
         </div>
 
         <!-- input with commodity name -->
-        <div class="form-input-comm ">Nome da mercadoria
+        <div class="form-input-comm">Nome da mercadoria
           <input type="text" name="nameCommodity" id="commodity-name" placeholder="Input "></input>
           <span class="msg-error msg-commodity"></span>
         </div>
@@ -88,7 +89,7 @@
             <td id="value-total">R$ 12.909,99</td>
           </tr>
           <tr id="state">
-            <td colspan="3" id="stateInput">(LUCRO)</span>
+            <td colspan="3" id="stateInput">(LUCRO)</td>
           </tr>
         </tfoot>
       </table>

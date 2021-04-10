@@ -1,6 +1,11 @@
 // Global Vars
+let countError = 0; // Variable countError will be incremented, if a field's value is invalid
+let elementType = document.getElementById("transactiontype");
 let elementValue = document.getElementById("value-input");
 let elementCommodity = document.getElementById("commodity-name");
+let arrayFormData = [];
+
+arrayFormData = JSON.parse(localStorage.getItem("arrayJSON"));
 
 // Dinamic Menu
 
@@ -15,16 +20,12 @@ function toggleMenu() {
 
 // validForm() function where all checks will be made, this function is assigned to the form's “submit” event
 function validForm(frm) {
-  // Variable countError will be incremented, if a field's value is invalid
-  let countError = 0;
-
   // Validating the Transaction Type field - user must choose one of the options */
   let optionErrorMsgBox = document.querySelector(".msg-option");
   if (frm.typeTransaction.value === "selection") {
     optionErrorMsgBox.innerHTML = "Por favor, selecione uma opção.";
     frm.typeTransaction.focus();
     optionErrorMsgBox.style.display = "block";
-    
     countError += 1;
     return false;
   } else {
@@ -33,11 +34,16 @@ function validForm(frm) {
 
   // Validating the Commodity Name field - user must fill in the field using at least 3 characters */
   let commodityErrorMsgBox = document.querySelector(".msg-commodity");
-  if (frm.nameCommodity.value === "" || frm.nameCommodity.value === null || frm.nameCommodity.value.length < 3) {
-    commodityErrorMsgBox.innerHTML = "Por favor, preencha o campo corretamente.";
+  if (
+    frm.nameCommodity.value === "" ||
+    frm.nameCommodity.value === null ||
+    frm.nameCommodity.value.length < 3
+  ) {
+    commodityErrorMsgBox.innerHTML =
+      "Por favor, preencha o campo corretamente.";
     frm.nameCommodity.focus();
     commodityErrorMsgBox.style.display = "block";
-    
+
     countError += 1;
     return false;
   } else {
@@ -47,21 +53,32 @@ function validForm(frm) {
   // Validating the Commodity Value field */
   let valueErrorMsgBox = document.querySelector(".msg-value");
   if (frm.valueInput.value === "" || frm.valueInput.value === null) {
-    valueErrorMsgBox.innerHTML = "Por favor, preencha o campo com o valor correto.";
+    valueErrorMsgBox.innerHTML =
+      "Por favor, preencha o campo com o valor correto.";
     frm.valueInput.focus();
     valueErrorMsgBox.style.display = "block";
-    
+
     countError += 1;
     return false;
   } else {
     valueErrorMsgBox.style.display = "none";
   }
   // If countError> 0, do not submit the page for recording, using the evt.preventDefault() method
+  evtPrevent();
+  registerProduct();
+}
+
+function evtPrevent(evt) {
   if (countError > 0) {
     evt.preventDefault();
   }
-  registerProduct();
 }
+/*
+function clearErrors() {
+  [...document.querySelectorAll(".form-transaction span")].forEach((message) => {
+    message.classList.add(".msg-error");
+  })
+}*/
 
 // Function to standardize writing of values as currency. */
 function valueFormated(frm) {
@@ -84,43 +101,44 @@ function valueFormated(frm) {
   if (valueOption === "NaN") elementValue.value = "";
 }
 
-/*
 // Function that will store the data entry in the local storage
 function registerProduct() {
-  let arrayFormData = [];
+  let data = {
+    elementType: elementType.value,
+    elementCommodity: elementCommodity.value,
+    elementValue: elementValue.value
+  };
 
-  for (let i = 0, i < arrayFormData.length, i++ ) {
+  arrayFormData.push(data);
 
-    elementValue = elementValue.value;
-    elementCommodity = elementCommodity.value;
-  
-    // Add the information to the array
-    let pullData = {
-      elementCommodity: elementCommodity,
-      elementValue: elementValue
-    };
+  addTable();
 
-    arrayFormData.push(pullData);
+  // Save the changed list
+  localStorage.setItem("arrayJSON", JSON.stringify(arrayFormData));
+}
 
-    // Save the changed list
-    localStorage.setItem("arrayJSON", JSON.stringify(arrayFormData));
+//Function that adds the data captured in the local storage to the table
+function addTable() {
+  document.querySelector(".table-statement tbody").innerHTML = "";
 
-    // Get the list already registered, if there is none, it turns into an empty array
-    arrayFormData = JSON.parse(localStorage.getItem("arrayJSON"));
+  for (let i = 0; i < arrayFormData.legth; i++) {
+    let typeTransaction = "+";
+
+    if (arrayFormData[i].elementType == "sale") {
+      typeTransaction = "-";
+    }
+    document.querySelector(".table-statement tbody").innerHTML +=
+      `
+      < tr >
+      <td class="tdTypeTransaction">` +
+      typeTransaction +
+      `</td>
+      <td class="tdCommodity">` +
+      arrayFormData[i].elementCommodity +
+      `</td>
+      <td class="tdValue">` +
+      arrayFormData[i].elementValue +
+      `</td>
+      </tr>`;
   }
 }
-// Function that adds the data captured in the local storage to the table
-function addTable(arrayFormData) {
-  let tableRef = document.getElementById("table-container").getElementsByTagName("tbody")[0];
-
-  let tr = document.createElement("tr");
-  let tdSinal = document.createElement("td");
-  let tdCommodity = document.createElement("td");
-  let tdValue = document.createElement("td");
-
-  tdCommodity.textContent = arrayFormData.elementCommodity;
-  tdValue.textContent = arrayFormData.valueRecord;
-
-  tr.appendChild(tdCommodity);
-  tr.appendChild(tdValue);
-}*/

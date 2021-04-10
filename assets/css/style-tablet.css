@@ -1,32 +1,31 @@
 @media screen and (min-width: 560px) and (max-width: 800px) {
-  
   /* adjusting size in tablet mode */
   body {
     max-width: 800px;
-    max-height : 1024px;
+    max-height: 1024px;
     min-width: 560px;
   }
 
-  /* Header */ 
+  /* Header */
   nav {
     width: 95%;
   }
-  
+
   .header-items {
     display: contents;
   }
-  
+
   /* Menu */
-  
+
   #img-menu {
     display: flex;
     width: 20px;
     z-index: 1;
     cursor: pointer;
   }
-  
+
   /* On the tablet, there is a black side menu that appears when you click the icon */
-  
+
   ul.hamburguer-menu {
     display: none;
     flex-direction: column;
@@ -36,21 +35,23 @@
     right: -300px;
     top: 0px;
     margin: 0px;
-    transition: all .2s linear;
+    transition: all 0.2s linear;
     text-align: right;
     animation-direction: left;
   }
-  
-  ul.hamburguer-menu li.right {float: right;}
-  
+
+  ul.hamburguer-menu li.right {
+    float: right;
+  }
+
   ul.hamburguer-menu li a {
     color: white;
   }
-  
+
   ul.hamburguer-menu li:hover {
-    background-color: #C4C4C4;
+    background-color: #c4c4c4;
     color: black;
-    transition: all .2s linear;
+    transition: all 0.2s linear;
   }
 
   button.open-menu {
@@ -63,7 +64,7 @@
     background-color: transparent;
     border-color: transparent;
   }
-  
+
   ul.hamburguer-menu #close {
     display: flex;
     width: 16px;
@@ -78,7 +79,8 @@
     transform: translate(-300px);
   }
 
-  #menu-item1, #menu-item2 {
+  #menu-item1,
+  #menu-item2 {
     border-right: none;
   }
 
@@ -113,7 +115,8 @@
     align-items: center;
   }
 
-  .transaction-type, .form-input-value {
+  .transaction-type,
+  .form-input-value {
     width: 25%;
   }
 
@@ -121,11 +124,12 @@
     width: 45%;
   }
 
-  select,input {
+  select,
+  input {
     margin: 10px 0px 0px 0px;
     padding: 0.3em;
   }
-  
+
   .button {
     width: 100%;
     display: flex;
@@ -136,9 +140,9 @@
     width: 30%;
     padding: 8px 0;
   }
-  
+
   /* Table */
-  
+
   table {
     width: 100%;
   }
