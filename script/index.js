@@ -6,7 +6,6 @@ let elementCommodity = document.getElementById("commodity-name");
 let arrayFormData = new Array();
 
 // Dinamic Menu
-
 function toggleMenu() {
   let menu = document.querySelector(".hamburguer-menu").classList;
   if ([...menu].indexOf("oppened") == -1) {
@@ -63,14 +62,15 @@ function validForm(frm) {
   }
   // If countError> 0, do not submit the page for recording, using the evt.preventDefault() method
   evtPrevent();
+  registerProduct();
+  
+  return false;
 }
 
 function evtPrevent(evt) {
   if (countError > 0) {
     evt.preventDefault();
   }
-
-  addTable();
 }
 /*
 function clearErrors() {
@@ -117,24 +117,38 @@ function registerProduct() {
 
   // Save the changed list
   localStorage.setItem("arrayFormData", JSON.stringify(arrayFormData));
+  
+  addTable();
 }
 
 //Function that adds the data captured in the local storage to the table
 function addTable() {
-  registerProduct();
   document.querySelector(".table-container tbody").innerHTML = "";
 
   for (let key in arrayFormData) {
     let typeTransaction = "+";
 
-    if (key.elementType == "sale") {
+    if (arrayFormData[key].elementType == "sale") {
       typeTransaction = "-";
     }
-    console.log(key);
+    
     document.querySelector(".table-container tbody").innerHTML += `<tr>
         <td class="tdTypeTransaction">${typeTransaction}</td>
         <td class="tdCommodity">${arrayFormData[key].elementCommodity}</td>
         <td class="tdValue">${arrayFormData[key].elementValue}</td>
       </tr>`;
   }
+  calcTotal();
+}
+
+function calcTotal() {
+  let total = 0.00;
+  for (key in arrayFormData) {
+    if (arrayFormData[key].elementType == "sale") {
+      total = total - parseFloat(arrayFormData[key].elementValue);
+    } else {
+      total = total + parseFloat(arrayFormData[key].elementValue);
+    }
+  }
+  document.getElementById("value-total").innerHTML += total;
 }

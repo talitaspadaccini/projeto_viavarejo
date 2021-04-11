@@ -169,9 +169,12 @@ table {
   border-radius: 4px;
   width: 58%;
   min-width: 300px;
+}
+
+#table-title {
   text-align: center;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 th,
@@ -179,8 +182,12 @@ td {
   height: 40px;
 }
 
-#line {
+.tdTypeTransaction, .tdCommodity, .tdValue {
   border-top: 1px solid #979797;
+}
+
+.tdValue {
+  text-align: right;
 }
 
 #sign {
@@ -191,12 +198,12 @@ td {
 #commodity-description,
 #total-title {
   text-align: left;
-  font-size: 14px;
+  font-size: 16px;
 }
 
-#value-total {
+#value-total, #value-description {
   text-align: right;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 #tr_description,
