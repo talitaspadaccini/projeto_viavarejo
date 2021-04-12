@@ -42,6 +42,7 @@
     transition: all 0.2s linear;
     text-align: right;
     animation-direction: left;
+    cursor: pointer;
   }
 
   ul.hamburguer-menu li.right {

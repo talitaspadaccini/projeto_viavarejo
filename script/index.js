@@ -152,3 +152,7 @@ function calcTotal() {
   }
   document.getElementById("value-total").innerHTML += total;
 }
+
+function clearData() {
+  localStorage.clear();
+}
