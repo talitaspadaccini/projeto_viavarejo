@@ -4,6 +4,7 @@ let elementType = document.getElementById("transactiontype");
 let elementValue = document.getElementById("value-input");
 let elementCommodity = document.getElementById("commodity-name");
 let arrayFormData = new Array();
+let key;
 
 // Dinamic Menu
 function toggleMenu() {
@@ -108,51 +109,70 @@ function registerProduct() {
     elementValue: elementValue.value
   };
 
-  // Checks whether the property exists. If it exists, convert from String to Object
-  if (localStorage.hasOwnProperty("arrayFormData")) {
-    arrayFormData = JSON.parse(localStorage.getItem("arrayFormData"));
-  }
   // Add values to the created array
   arrayFormData.push(data);
 
   // Save the changed list
   localStorage.setItem("arrayFormData", JSON.stringify(arrayFormData));
-  
+
   addTable();
+
 }
 
 //Function that adds the data captured in the local storage to the table
 function addTable() {
+  // Checks whether the property exists. If it exists, convert from String to Object
+  if (localStorage.hasOwnProperty("arrayFormData")) {
+    arrayFormData = JSON.parse(localStorage.getItem("arrayFormData"));
+  }
+  // Save the changed list
+  localStorage.setItem("arrayFormData", JSON.stringify(arrayFormData));
+
   document.querySelector(".table-container tbody").innerHTML = "";
-
-  for (let key in arrayFormData) {
-    let typeTransaction = "+";
-
-    if (arrayFormData[key].elementType == "sale") {
-      typeTransaction = "-";
-    }
-    
+  
+  if (arrayFormData.length == 0) {
     document.querySelector(".table-container tbody").innerHTML += `<tr>
+        <td colspan = "3" style="text-align: center">Nenhuma transação cadastrada.</td>`
+        } else {
+    for (key in arrayFormData) {
+      let typeTransaction = "+";
+
+      if (arrayFormData[key].elementType == "sale") {
+        typeTransaction = "-";
+      }
+      document.querySelector(".table-container tbody").innerHTML += `<tr>
         <td class="tdTypeTransaction">${typeTransaction}</td>
         <td class="tdCommodity">${arrayFormData[key].elementCommodity}</td>
-        <td class="tdValue">${arrayFormData[key].elementValue}</td>
+        <td class="tdValue">R$ ${arrayFormData[key].elementValue}</td>
       </tr>`;
+    }
   }
-  calcTotal();
+    calcTotal();
+  
 }
 
 function calcTotal() {
   let total = 0.00;
+  total = parseFloat(total);
   for (key in arrayFormData) {
+    floatValue = arrayFormData[key].elementValue.replace(",", ".");
     if (arrayFormData[key].elementType == "sale") {
-      total = total - parseFloat(arrayFormData[key].elementValue);
+      total -= parseFloat(floatValue);
     } else {
-      total = total + parseFloat(arrayFormData[key].elementValue);
+      total += parseFloat(floatValue);
     }
   }
-  document.getElementById("value-total").innerHTML += total;
+  total = total.toFixed(2);
+  totalFix = total.toString().replace(".",",");
+  document.getElementById("value-total").innerHTML = "R$ " + totalFix;
 }
+
+// When reloading the page, the table appears
+window.addEventListener("load", function () {
+  addTable();
+})
 
 function clearData() {
   localStorage.clear();
 }
+
