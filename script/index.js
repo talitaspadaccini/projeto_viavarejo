@@ -5,6 +5,7 @@ let elementValue = document.getElementById("value-input");
 let elementCommodity = document.getElementById("commodity-name");
 let arrayFormData = new Array();
 let key;
+let total;
 
 // Dinamic Menu
 function toggleMenu() {
@@ -151,7 +152,7 @@ function addTable() {
 }
 
 function calcTotal() {
-  let total = 0.00;
+  total = 0.00;
   total = parseFloat(total);
   for (key in arrayFormData) {
     floatValue = arrayFormData[key].elementValue.replace(",", ".");
@@ -161,6 +162,9 @@ function calcTotal() {
       total += parseFloat(floatValue);
     }
   }
+
+  profitOrLoss();
+
   total = total.toFixed(2);
   totalFix = total.toString().replace(".",",");
   document.getElementById("value-total").innerHTML = "R$ " + totalFix;
@@ -173,8 +177,18 @@ window.addEventListener("load", function () {
 
 function clearData() {
   let clearTable = confirm("Deseja apagar os dados da tabela?");
-    if (clearTable == true) {
-      localStorage.clear();
-    }
+  if (clearTable == true) {
+    localStorage.clear();
+  }
 }
 
+function profitOrLoss() {
+  trLucro = document.getElementById("state");
+  if (total > 0) {
+    trLucro.innerHTML = `<td colspan="3">LUCRO</td>`;
+  } else if (total < 0){
+    trLucro.innerHTML = `<td colspan="3">PREJUÍZO</td>`;
+  } else {
+    trLucro.innerHTML = `<td colspan="3">PONTO DE EQUILÍBRIO</td>`;
+  }
+}
