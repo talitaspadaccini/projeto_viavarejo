@@ -147,8 +147,7 @@ function addTable() {
       </tr>`;
     }
   }
-    calcTotal();
-  
+    calcTotal(); 
 }
 
 function calcTotal() {
@@ -173,6 +172,9 @@ window.addEventListener("load", function () {
 })
 
 function clearData() {
-  localStorage.clear();
+  let clearTable = confirm("Deseja apagar os dados da tabela?");
+    if (clearTable == true) {
+      localStorage.clear();
+    }
 }
 
