@@ -175,6 +175,7 @@ window.addEventListener("load", function () {
   addTable();
 })
 
+// Function that clears data from the table
 function clearData() {
   let clearTable = confirm("Deseja apagar os dados da tabela?");
   if (clearTable == true) {
@@ -182,13 +183,86 @@ function clearData() {
   }
 }
 
+//Function that defines profit, loss or breakeven point (there is neither profit nor loss)
 function profitOrLoss() {
   trLucro = document.getElementById("state");
   if (total > 0) {
-    trLucro.innerHTML = `<td colspan="3">LUCRO</td>`;
+    trLucro.innerHTML = `<td colspan="3">[LUCRO]</td>`;
   } else if (total < 0){
-    trLucro.innerHTML = `<td colspan="3">PREJUÍZO</td>`;
+    trLucro.innerHTML = `<td colspan="3">[PREJUÍZO]</td>`;
   } else {
-    trLucro.innerHTML = `<td colspan="3">PONTO DE EQUILÍBRIO</td>`;
+    trLucro.innerHTML = `<td colspan="3">[PONTO DE EQUILÍBRIO]</td>`;
   }
+}
+
+function saveData() {
+  let student = "7890";
+  let json = JSON.stringify(arrayFormData);
+  fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
+    headers: {
+      Authorization: "Bearer key2CwkHb0CKumjuM"
+    }
+  })
+    .then(response => response.json())
+    .then(responseJSON => {
+      let exist = responseJSON.records.filter((record) => {
+        if (student == record.fields.Aluno) {
+          return true;
+        }
+        return false;
+      })
+
+        if (exist.length == 0) {
+          insertData();
+        } else {
+          changeData(exist[0]);
+        }
+      })
+}
+
+function insertData() {
+  let json = JSON.stringify(arrayFormData);
+  let body = JSON.stringify({
+    "records": [
+      {
+        "fields": {
+          "Aluno": student,
+          "Json": json
+        }
+      }
+    ]
+  })
+
+  fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer key2CwkHb0CKumjuM",
+      "Content-Type": "application/json"
+    },
+    body: body
+  })
+}
+
+function hangeData() {
+  let json = JSON.stringify(arrayFormData);
+  let body = JSON.stringify({
+    "records": [
+      {
+        "ïd": id,
+        "fields": {
+          "Aluno": student,
+          "Json": json
+        }
+      }
+    ]
+  })
+
+  fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
+    method: "PATCH",
+    headers: {
+      Authorization: "Bearer key2CwkHb0CKumjuM",
+      "Content-Type": "application/json"
+    },
+    body: body
+  })
 }
