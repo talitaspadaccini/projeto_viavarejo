@@ -112,7 +112,7 @@
   .form-items {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .transaction-type,
@@ -139,6 +139,20 @@
   #button-form {
     width: 30%;
     padding: 8px 0;
+  }
+
+  .msg-error {
+    display: block;
+    white-space: nowrap;
+    margin-top: 10px;
+  }
+  
+  .msg-error.msg-commodity {
+    align-self: center;
+  }
+  
+  .msg-error.msg-value {
+    align-self: flex-end;
   }
 
   /* Table */
