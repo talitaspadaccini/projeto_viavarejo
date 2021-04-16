@@ -6,6 +6,7 @@ let elementCommodity = document.getElementById("commodity-name");
 let arrayFormData = new Array();
 let key;
 let total;
+let student = "7890";
 
 // Dinamic Menu
 function toggleMenu() {
@@ -65,7 +66,7 @@ function validForm(frm) {
   // If countError> 0, do not submit the page for recording, using the evt.preventDefault() method
   evtPrevent();
   registerProduct();
-  
+
   return false;
 }
 
@@ -117,7 +118,6 @@ function registerProduct() {
   localStorage.setItem("arrayFormData", JSON.stringify(arrayFormData));
 
   addTable();
-
 }
 
 //Function that adds the data captured in the local storage to the table
@@ -130,11 +130,11 @@ function addTable() {
   localStorage.setItem("arrayFormData", JSON.stringify(arrayFormData));
 
   document.querySelector(".table-container tbody").innerHTML = "";
-  
+
   if (arrayFormData.length == 0) {
     document.querySelector(".table-container tbody").innerHTML += `<tr>
-        <td colspan = "3" style="text-align: center">Nenhuma transação cadastrada.</td>`
-        } else {
+        <td colspan = "3" style="text-align: center">Nenhuma transação cadastrada.</td>`;
+  } else {
     for (key in arrayFormData) {
       let typeTransaction = "+";
 
@@ -148,11 +148,11 @@ function addTable() {
       </tr>`;
     }
   }
-    calcTotal(); 
+  calcTotal();
 }
 
 function calcTotal() {
-  total = 0.00;
+  total = 0.0;
   total = parseFloat(total);
   for (key in arrayFormData) {
     floatValue = arrayFormData[key].elementValue.replace(",", ".");
@@ -166,14 +166,14 @@ function calcTotal() {
   profitOrLoss();
 
   total = total.toFixed(2);
-  totalFix = total.toString().replace(".",",");
+  totalFix = total.toString().replace(".", ",");
   document.getElementById("value-total").innerHTML = "R$ " + totalFix;
 }
 
 // When reloading the page, the table appears
 window.addEventListener("load", function () {
   addTable();
-})
+});
 
 // Function that clears data from the table
 function clearData() {
@@ -188,7 +188,7 @@ function profitOrLoss() {
   trLucro = document.getElementById("state");
   if (total > 0) {
     trLucro.innerHTML = `<td colspan="3">[LUCRO]</td>`;
-  } else if (total < 0){
+  } else if (total < 0) {
     trLucro.innerHTML = `<td colspan="3">[PREJUÍZO]</td>`;
   } else {
     trLucro.innerHTML = `<td colspan="3">[PONTO DE EQUILÍBRIO]</td>`;
@@ -196,42 +196,41 @@ function profitOrLoss() {
 }
 
 function saveData() {
-  let student = "7890";
   let json = JSON.stringify(arrayFormData);
   fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
     headers: {
       Authorization: "Bearer key2CwkHb0CKumjuM"
     }
   })
-    .then(response => response.json())
-    .then(responseJSON => {
-      let exist = responseJSON.records.filter((record) => {
+    .then((response) => response.json())
+    .then((responseJson) => {
+      let exist = responseJson.records.filter((record) => {
         if (student == record.fields.Aluno) {
           return true;
         }
         return false;
-      })
+      });
 
-        if (exist.length == 0) {
-          insertData();
-        } else {
-          changeData(exist[0]);
-        }
-      })
+      if (exist.length == 0) {
+        insertData();
+      } else {
+        changeData(exist[0].id);
+      }
+    });
 }
 
 function insertData() {
   let json = JSON.stringify(arrayFormData);
   let body = JSON.stringify({
-    "records": [
+    records: [
       {
-        "fields": {
-          "Aluno": student,
-          "Json": json
+        fields: {
+          Aluno: student,
+          Json: json
         }
       }
     ]
-  })
+  });
 
   fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
     method: "POST",
@@ -240,22 +239,22 @@ function insertData() {
       "Content-Type": "application/json"
     },
     body: body
-  })
+  });
 }
 
-function hangeData() {
+function changeData(id) {
   let json = JSON.stringify(arrayFormData);
   let body = JSON.stringify({
-    "records": [
+    records: [
       {
-        "ïd": id,
-        "fields": {
-          "Aluno": student,
-          "Json": json
+        id: id,
+        fields: {
+          Aluno: student,
+          Json: json
         }
       }
     ]
-  })
+  });
 
   fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
     method: "PATCH",
@@ -264,5 +263,5 @@ function hangeData() {
       "Content-Type": "application/json"
     },
     body: body
-  })
+  });
 }
