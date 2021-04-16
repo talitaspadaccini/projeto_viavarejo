@@ -100,170 +100,172 @@ function valueFormated(frm) {
     );
   }
   elementValue.value = valueOption;
-  if (valueOption === "NaN") elementValue.value = "";
-}
-
-// Function that will store the data entry in the local storage
-function registerProduct() {
-  let data = {
-    elementType: elementType.value,
-    elementCommodity: elementCommodity.value,
-    elementValue: elementValue.value
-  };
-
-  // Add values to the created array
-  arrayFormData.push(data);
-
-  // Save the changed list
-  localStorage.setItem("arrayFormData", JSON.stringify(arrayFormData));
-
-  addTable();
-}
-
-//Function that adds the data captured in the local storage to the table
-function addTable() {
-  // Checks whether the property exists. If it exists, convert from String to Object
-  if (localStorage.hasOwnProperty("arrayFormData")) {
-    arrayFormData = JSON.parse(localStorage.getItem("arrayFormData"));
+  if (valueOption === "NaN") {
+    elementValue.value = "";
   }
-  // Save the changed list
-  localStorage.setItem("arrayFormData", JSON.stringify(arrayFormData));
 
-  document.querySelector(".table-container tbody").innerHTML = "";
+  // Function that will store the data entry in the local storage
+  function registerProduct() {
+    let data = {
+      elementType: elementType.value,
+      elementCommodity: elementCommodity.value,
+      elementValue: elementValue.value
+    };
 
-  if (arrayFormData.length == 0) {
-    document.querySelector(".table-container tbody").innerHTML += `<tr>
-        <td colspan = "3" style="text-align: center">Nenhuma transação cadastrada.</td>`;
-  } else {
-    for (key in arrayFormData) {
-      let typeTransaction = "+";
+    // Add values to the created array
+    arrayFormData.push(data);
 
-      if (arrayFormData[key].elementType == "sale") {
-        typeTransaction = "-";
-      }
+    // Save the changed list
+    localStorage.setItem("arrayFormData", JSON.stringify(arrayFormData));
+
+    addTable();
+  }
+
+  //Function that adds the data captured in the local storage to the table
+  function addTable() {
+    // Checks whether the property exists. If it exists, convert from String to Object
+    if (localStorage.hasOwnProperty("arrayFormData")) {
+      arrayFormData = JSON.parse(localStorage.getItem("arrayFormData"));
+    }
+    // Save the changed list
+    localStorage.setItem("arrayFormData", JSON.stringify(arrayFormData));
+
+    document.querySelector(".table-container tbody").innerHTML = "";
+
+    if (arrayFormData.length == 0) {
       document.querySelector(".table-container tbody").innerHTML += `<tr>
+        <td colspan = "3" style="text-align: center">Nenhuma transação cadastrada.</td>`;
+    } else {
+      for (key in arrayFormData) {
+        let typeTransaction = "+";
+
+        if (arrayFormData[key].elementType == "sale") {
+          typeTransaction = "-";
+        }
+        document.querySelector(".table-container tbody").innerHTML += `<tr>
         <td class="tdTypeTransaction">${typeTransaction}</td>
         <td class="tdCommodity">${arrayFormData[key].elementCommodity}</td>
         <td class="tdValue">R$ ${arrayFormData[key].elementValue}</td>
       </tr>`;
+      }
     }
-  }
-  calcTotal();
-}
-
-// Function that calculates total sum of table values
-function calcTotal() {
-  total = 0.0;
-  total = parseFloat(total);
-  for (key in arrayFormData) {
-    floatValue = arrayFormData[key].elementValue.replace(",", ".");
-    if (arrayFormData[key].elementType == "sale") {
-      total -= parseFloat(floatValue);
-    } else {
-      total += parseFloat(floatValue);
-    }
+    calcTotal();
   }
 
-  profitOrLoss();
-
-  total = total.toFixed(2);
-  totalFix = total.toString().replace(".", ",");
-  document.getElementById("value-total").innerHTML = "R$ " + totalFix;
-}
-
-// When reloading the page, the table appears
-window.addEventListener("load", function () {
-  addTable();
-});
-
-// Function that clears data from the table
-function clearData() {
-  let clearTable = confirm("Deseja apagar os dados da tabela?");
-  if (clearTable == true) {
-    localStorage.clear();
-  }
-}
-
-//Function that defines profit, loss or breakeven point (there is neither profit nor loss)
-function profitOrLoss() {
-  trLucro = document.getElementById("state");
-  if (total > 0) {
-    trLucro.innerHTML = `<td colspan="3">[LUCRO]</td>`;
-  } else if (total < 0) {
-    trLucro.innerHTML = `<td colspan="3">[PREJUÍZO]</td>`;
-  } else {
-    trLucro.innerHTML = `<td colspan="3">[PONTO DE EQUILÍBRIO]</td>`;
-  }
-}
-
-//Salvar dados no servidor com chamada para API Airtable
-function saveData() {
-  let json = JSON.stringify(arrayFormData);
-  fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
-    headers: {
-      Authorization: "Bearer key2CwkHb0CKumjuM"
-    }
-  })
-    .then((response) => response.json())
-    .then((responseJson) => {
-      let exist = responseJson.records.filter((record) => {
-        if (student == record.fields.Aluno) {
-          return true;
-        }
-        return false;
-      });
-
-      if (exist.length == 0) {
-        insertData();
+  // Function that calculates total sum of table values
+  function calcTotal() {
+    total = 0.0;
+    total = parseFloat(total);
+    for (key in arrayFormData) {
+      floatValue = arrayFormData[key].elementValue.replace(",", ".");
+      if (arrayFormData[key].elementType == "sale") {
+        total -= parseFloat(floatValue);
       } else {
-        changeData(exist[0].id);
+        total += parseFloat(floatValue);
       }
+    }
+
+    profitOrLoss();
+
+    total = total.toFixed(2);
+    totalFix = total.toString().replace(".", ",");
+    document.getElementById("value-total").innerHTML = "R$ " + totalFix;
+  }
+
+  // When reloading the page, the table appears
+  window.addEventListener("load", function () {
+    addTable();
+  });
+
+  // Function that clears data from the table
+  function clearData() {
+    let clearTable = confirm("Deseja apagar os dados da tabela?");
+    if (clearTable == true) {
+      localStorage.clear();
+    }
+  }
+
+  //Function that defines profit, loss or breakeven point (there is neither profit nor loss)
+  function profitOrLoss() {
+    trLucro = document.getElementById("state");
+    if (total > 0) {
+      trLucro.innerHTML = `<td colspan="3">[LUCRO]</td>`;
+    } else if (total < 0) {
+      trLucro.innerHTML = `<td colspan="3">[PREJUÍZO]</td>`;
+    } else {
+      trLucro.innerHTML = `<td colspan="3">[PONTO DE EQUILÍBRIO]</td>`;
+    }
+  }
+
+  //Salvar dados no servidor com chamada para API Airtable
+  function saveData() {
+    let json = JSON.stringify(arrayFormData);
+    fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
+      headers: {
+        Authorization: "Bearer key2CwkHb0CKumjuM"
+      }
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        let exist = responseJson.records.filter((record) => {
+          if (student == record.fields.Aluno) {
+            return true;
+          }
+          return false;
+        });
+
+        if (exist.length == 0) {
+          insertData();
+        } else {
+          changeData(exist[0].id);
+        }
+      });
+  }
+
+  function insertData() {
+    let json = JSON.stringify(arrayFormData);
+    let body = JSON.stringify({
+      records: [
+        {
+          fields: {
+            Aluno: student,
+            Json: json
+          }
+        }
+      ]
     });
-}
 
-function insertData() {
-  let json = JSON.stringify(arrayFormData);
-  let body = JSON.stringify({
-    records: [
-      {
-        fields: {
-          Aluno: student,
-          Json: json
+    fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer key2CwkHb0CKumjuM",
+        "Content-Type": "application/json"
+      },
+      body: body
+    });
+  }
+
+  function changeData(id) {
+    let json = JSON.stringify(arrayFormData);
+    let body = JSON.stringify({
+      records: [
+        {
+          id: id,
+          fields: {
+            Aluno: student,
+            Json: json
+          }
         }
-      }
-    ]
-  });
+      ]
+    });
 
-  fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
-    method: "POST",
-    headers: {
-      Authorization: "Bearer key2CwkHb0CKumjuM",
-      "Content-Type": "application/json"
-    },
-    body: body
-  });
-}
-
-function changeData(id) {
-  let json = JSON.stringify(arrayFormData);
-  let body = JSON.stringify({
-    records: [
-      {
-        id: id,
-        fields: {
-          Aluno: student,
-          Json: json
-        }
-      }
-    ]
-  });
-
-  fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
-    method: "PATCH",
-    headers: {
-      Authorization: "Bearer key2CwkHb0CKumjuM",
-      "Content-Type": "application/json"
-    },
-    body: body
-  });
+    fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
+      method: "PATCH",
+      headers: {
+        Authorization: "Bearer key2CwkHb0CKumjuM",
+        "Content-Type": "application/json"
+      },
+      body: body
+    });
+  }
 }
