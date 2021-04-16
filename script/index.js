@@ -103,6 +103,7 @@ function valueFormated(frm) {
   if (valueOption === "NaN") {
     elementValue.value = "";
   }
+}
 
   // Function that will store the data entry in the local storage
   function registerProduct() {
@@ -268,4 +269,3 @@ function valueFormated(frm) {
       body: body
     });
   }
-}
