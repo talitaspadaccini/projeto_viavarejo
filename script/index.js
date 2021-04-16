@@ -151,6 +151,7 @@ function addTable() {
   calcTotal();
 }
 
+// Function that calculates total sum of table values
 function calcTotal() {
   total = 0.0;
   total = parseFloat(total);
@@ -195,6 +196,7 @@ function profitOrLoss() {
   }
 }
 
+//Salvar dados no servidor com chamada para API Airtable
 function saveData() {
   let json = JSON.stringify(arrayFormData);
   fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
