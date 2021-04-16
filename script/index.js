@@ -93,12 +93,13 @@ function valueFormated(frm) {
   if (valueOption.length > 6) {
     valueOption = valueOption.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
   }
-  if (valueOption.length > 9) {
+  if (valueOption.length > 10) {
     valueOption = valueOption.replace(
       /([0-9]{3}).([0-9]{3}),([0-9]{2})$/g,
       ".$1.$2,$3"
     );
   }
+
   elementValue.value = valueOption;
   if (valueOption === "NaN") {
     elementValue.value = "";
@@ -155,24 +156,45 @@ function valueFormated(frm) {
 
   // Function that calculates total sum of table values
   function calcTotal() {
-    total = 0.0;
+    total = 0.00;
     total = parseFloat(total);
     for (key in arrayFormData) {
-      floatValue = arrayFormData[key].elementValue.replace(",", ".");
+      floatValue = arrayFormData[key].elementValue.replaceAll(".", "").replace(",", ".");
       if (arrayFormData[key].elementType == "sale") {
         total -= parseFloat(floatValue);
       } else {
         total += parseFloat(floatValue);
       }
     }
-
     profitOrLoss();
-
     total = total.toFixed(2);
-    totalFix = total.toString().replace(".", ",");
-    document.getElementById("value-total").innerHTML = "R$ " + totalFix;
+    document.getElementById("value-total").innerHTML = "R$ " + formatValues(total);
   }
 
+// General value formatting function
+function formatValues(x) {
+  let sign = "";
+  if (parseFloat(x) < 0) {
+    sign = "-";
+  }
+
+  x = x + "";
+  x = parseInt(x.replace(/[\D]+/g, ""));
+  x = x + "";
+  x = x.replace(/([0-9]{2})$/g, ",$1");
+
+  if (x.length > 6) {
+    x = x.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+  }
+  if (x.length > 10) {
+    x = x.replace(
+      /([0-9]{3}).([0-9]{3}),([0-9]{2})$/g,
+      ".$1.$2,$3"
+    );
+  }
+  return x + sign;
+}
+  
   // When reloading the page, the table appears
   window.addEventListener("load", function () {
     addTable();
