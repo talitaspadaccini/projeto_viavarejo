@@ -139,10 +139,10 @@ function valueFormated(frm) {
         <td colspan = "3" style="text-align: center">Nenhuma transação cadastrada.</td>`;
     } else {
       for (key in arrayFormData) {
-        let typeTransaction = "+";
+        let typeTransaction = "-";
 
         if (arrayFormData[key].elementType == "sale") {
-          typeTransaction = "-";
+          typeTransaction = "+";
         }
         document.querySelector(".table-container tbody").innerHTML += `<tr>
         <td class="tdTypeTransaction">${typeTransaction}</td>
@@ -161,9 +161,9 @@ function valueFormated(frm) {
     for (key in arrayFormData) {
       floatValue = arrayFormData[key].elementValue.replaceAll(".", "").replace(",", ".");
       if (arrayFormData[key].elementType == "sale") {
-        total -= parseFloat(floatValue);
-      } else {
         total += parseFloat(floatValue);
+      } else {
+        total -= parseFloat(floatValue);
       }
     }
     profitOrLoss();
@@ -220,9 +220,10 @@ function formatValues(x) {
     }
   }
 
-  //Salvar dados no servidor com chamada para API Airtable
+  // Save data to the server with a call to the Airtable API
   function saveData() {
     let json = JSON.stringify(arrayFormData);
+    let saveData = confirm('Deseja salvar os dados no servidor?');
     fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
       headers: {
         Authorization: "Bearer key2CwkHb0CKumjuM"
